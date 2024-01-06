@@ -6,8 +6,6 @@ on:
   pull_request:
 
 env:
-  OPTIMISTIC_REBALANCE_PROPOSER_PK: ${{ secrets.TREND_INDEX_REBALANCER_PRIVATE_KEY }}
-  COINDESK_API: ${{ secrets.COINDESK_API }}
   MAINNET_RPC_URL: ${{ secrets.MAINNET_RPC_URL }}
 
 jobs:
