@@ -1,4 +1,4 @@
-import {  Contract, Signer} from "ethers";
+import { BigNumber, Contract, Signer} from "ethers";
 import { RatedApiService } from "./ratedApiService";
 import { AuctionConfig } from "./auctionConfig";
 import { toWei } from "./utils";
@@ -43,7 +43,7 @@ const stakingTokenRateProviders: Record<PoolIds, string> = {
 };
 
 type AuctionExecutionParams = {
-  targetUnit: BigNum;                 // Target quantity of the component in Set, in precise units (10 ** 18).
+  targetUnit: BigNumber;                 // Target quantity of the component in Set, in precise units (10 ** 18).
   priceAdapterName: string;              // Identifier for the price adapter to be used.
   priceAdapterConfigData: string;        // Encoded data for configuring the chosen price adapter.
 };
@@ -80,8 +80,8 @@ export class AuctionRebalanceProposer {
     return targetWeights;
   }
 
-  async getEthExchangeRates(): Promise<BigNum[]> {
-    let ethExchangeRates: BigNum[] = [];
+  async getEthExchangeRates(): Promise<BigNumber[]> {
+    let ethExchangeRates: BigNumber[] = [];
 
     for (const poolId of Object.values(PoolIds)) {
       switch (poolId) {
@@ -96,7 +96,7 @@ export class AuctionRebalanceProposer {
           const ethPerStEth = await stEthRateProvider.latestAnswer();
 
           // Calculate ETH per wstETH
-          const ethPerWstETH = stEthPerWstETH.mul(ethPerStEth).div(10n ** 18n);
+          const ethPerWstETH = stEthPerWstETH.mul(ethPerStEth).div(BigNumber.from(10).pow(18));
           ethExchangeRates.push(ethPerWstETH);
           break;
         case PoolIds.Rocketpool:
@@ -126,19 +126,19 @@ export class AuctionRebalanceProposer {
     return ethExchangeRates;
   }
 
-  async getSetTokenNavInWei(setToken: string): Promise<BigNum> {
+  async getSetTokenNavInWei(setToken: string): Promise<BigNumber> {
     const setTokenContract = new Contract(setToken, SET_TOKEN_ABI, this.signer);
     const components: string[] = await setTokenContract.getComponents();
-    const currentUnits: BigNum[] = await Promise.all(Object.values(stakingTokenAddresses).map(async (addr) => {
+    const currentUnits: BigNumber[] = await Promise.all(Object.values(stakingTokenAddresses).map(async (addr) => {
       if (components.includes(addr)) return await setTokenContract.getDefaultPositionRealUnit(addr);
-      return 0n;
+      return BigNumber.from(0);
     }));
     const componentPricesInWei = await this.getEthExchangeRates();
 
-    return currentUnits.reduce((a: BigNum, b, i) => a.add(b.mul(componentPricesInWei[i]).div(10n ** 18n)), 0n);
+    return currentUnits.reduce((a: BigNumber, b, i) => a.add(b.mul(componentPricesInWei[i]).div(BigNumber.from(10).pow(18))), BigNumber.from(0));
   }
 
-  async getTargetUnits(targetWeights: number[]): Promise<BigNum[]> {
+  async getTargetUnits(targetWeights: number[]): Promise<BigNumber[]> {
     const nav = await this.getSetTokenNavInWei(this.setToken);
     const componentPricesInWei = await this.getEthExchangeRates();
     
@@ -146,7 +146,7 @@ export class AuctionRebalanceProposer {
       nav.mul(toWei(weight)).div(componentPricesInWei[i]));
   }
 
-  async getProposeRebalanceParams(targetUnits: BigNum[]): Promise<ProposeRebalanceParams> {
+  async getProposeRebalanceParams(targetUnits: BigNumber[]): Promise<ProposeRebalanceParams> {
     const componentPricesInWei = await this.getEthExchangeRates();
     const priceAdapter = new Contract(this.auctionConfig.priceAdapterAddress, BOUNDED_STEPWISE_LINEAR_PRICE_ADAPTER_ABI, this.signer);
     const setTokenContract = new Contract(this.setToken, SET_TOKEN_ABI, this.signer);
@@ -158,7 +158,7 @@ export class AuctionRebalanceProposer {
     let i = 0;
     for (const addr of Object.values(stakingTokenAddresses)) {
       if (oldComponents.includes(addr)) {
-        const currentUnits: BigNum = await setTokenContract.getDefaultPositionRealUnit(addr);
+        const currentUnits: BigNumber = await setTokenContract.getDefaultPositionRealUnit(addr);
         const isDecreasing = targetUnits[i] < currentUnits; // When selling component, auction price is decreasing
         const params = await this.getAuctionExecutionParamsForComponent(priceAdapter, this.auctionConfig, componentPricesInWei[i], targetUnits[i], isDecreasing);
         oldComponentsAuctionParams.push(params);
@@ -257,7 +257,7 @@ export class AuctionRebalanceProposer {
     });
   }
 
-  async getAuctionExecutionParamsForComponent(priceAdapter: Contract, config: AuctionConfig, priceInWei: BigNum, targetUnit: BigNum, isDecreasing: boolean): Promise<AuctionExecutionParams> {
+  async getAuctionExecutionParamsForComponent(priceAdapter: Contract, config: AuctionConfig, priceInWei: BigNumber, targetUnit: BigNumber, isDecreasing: boolean): Promise<AuctionExecutionParams> {
     const initialPrice = isDecreasing ? 
       priceInWei.mul(toWei(config.initialPricePctSellComponents)) :
       priceInWei.mul(toWei(config.initialPricePctBuyComponents));
@@ -305,4 +305,3 @@ export class AuctionRebalanceProposer {
     return validatorCounts;
   }
 }
-
