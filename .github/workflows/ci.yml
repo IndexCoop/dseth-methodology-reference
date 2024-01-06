@@ -1,0 +1,45 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  ARB_KEEPER_ADDRESS: ${{ secrets.ARB_KEEPER_ADDRESS }}
+  ARB_KEEPER_PRIVATE_KEY: ${{ secrets.ARB_KEEPER_PRIVATE_KEY }}
+  TREND_INDEX_REBALANCER_PRIVATE_KEY: ${{ secrets.TREND_INDEX_REBALANCER_PRIVATE_KEY }}
+  OPTIMISTIC_REBALANCE_PROPOSER_PK: ${{ secrets.TREND_INDEX_REBALANCER_PRIVATE_KEY }}
+  COINDESK_API: ${{ secrets.COINDESK_API }}
+  MAINNET_RPC_URL: ${{ secrets.MAINNET_RPC_URL }}
+
+jobs:
+  test:
+    strategy:
+      fail-fast: true
+
+    name: Hardhat project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Setup Node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+          cache: "npm"
+
+      - name: Copy .env vars
+        run: cp .env.default .env
+
+      - name: Install 
+        run: |
+          yarn install
+
+      - name: Run Hardhat tests
+        run: |
+          yarn hardhat test
+        id: hardhat-test
+
