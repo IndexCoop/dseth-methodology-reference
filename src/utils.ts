@@ -1,7 +1,7 @@
-import { BigNum, ethers} from "ethers";
+import { BigNum, ethers } from "ethers";
 
 export function parseEther(ether: string): BigNum {
-  return ethers.parseEther(ether);
+    return ethers.utils.parseEther(ether);
 }
 
 /**
@@ -12,28 +12,28 @@ export function parseEther(ether: string): BigNum {
  * @returns converted number as BigNum
  */
 export const toWei = (
-  valueToConvert: number | string,
-  power: number = 18
+    valueToConvert: number | string,
+    power: number = 18,
 ): BigNum => {
-  // parseUnits only accepts strings
-  let value =
-    typeof valueToConvert === 'number'
-      ? valueToConvert.toString()
-      : valueToConvert
+    // parseUnits only accepts strings
+    let value =
+        typeof valueToConvert === "number"
+            ? valueToConvert.toString()
+            : valueToConvert;
 
-  const splits = value.split('.')
-  const integerPart = splits[0]
-  let fractionalPart = splits[1]
+    const splits = value.split(".");
+    const integerPart = splits[0];
+    let fractionalPart = splits[1];
 
-  if (!fractionalPart) {
-    return ethers.parseUnits(integerPart, power)
-  }
+    if (!fractionalPart) {
+        return ethers.utils.parseUnits(integerPart, power);
+    }
 
-  if (fractionalPart.length > power) {
-    // Fractional components must not exceed decimals
-    fractionalPart = fractionalPart.substring(0, power)
-  }
+    if (fractionalPart.length > power) {
+        // Fractional components must not exceed decimals
+        fractionalPart = fractionalPart.substring(0, power);
+    }
 
-  value = integerPart + '.' + fractionalPart
-  return ethers.parseUnits(value, power)
-}
+    value = integerPart + "." + fractionalPart;
+    return ethers.utils.parseUnits(value, power);
+};
