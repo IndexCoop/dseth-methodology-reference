@@ -40,9 +40,7 @@ describe("Calculate dsETH auction rebalance params", function () {
     describe("On-chain price queries", function () {
         describe("#getEthExchangeRates", function () {
             it("should return one value for each pool", async function () {
-                const lstEthExchangeRates = (
-                    await dsEthProposer.getEthExchangeRates()
-                ).toString();
+                const lstEthExchangeRates = await dsEthProposer.getEthExchangeRates();
                 expect(lstEthExchangeRates).to.have.lengthOf(numberOfPools);
             });
         });
