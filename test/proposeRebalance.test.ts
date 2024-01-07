@@ -77,13 +77,9 @@ describe("Calculate dsETH auction rebalance params", function () {
             validatorCount: defaultValidatorCount,
         };
 
-
         before(function () {
             mockRatedEndpoint(/.*\/summary/, (config: any) => {
-                return [
-                    200,
-                    defaultPoolSummary,
-                ];
+                return [200, defaultPoolSummary];
             });
             mockRatedEndpoint("/eth/operators", (config: any) => {
                 const data =
@@ -107,7 +103,7 @@ describe("Calculate dsETH auction rebalance params", function () {
             it("Should return correct values", async function () {
                 const operatorCounts =
                     await dsEthProposer.getNodeOperatorCounts();
-                for(let i = 0; i < numberOfPools - 1; i++) {
+                for (let i = 0; i < numberOfPools - 1; i++) {
                     expect(operatorCounts[i]).to.equal(defaultOperatorCount);
                 }
                 // Assumption: Stader is always last in the list
@@ -158,22 +154,20 @@ describe("Calculate dsETH auction rebalance params", function () {
 
         context("#getTargetUnits", function () {
             it("Should have one result for each pool", async function () {
-                const targetUnits =
-                    await dsEthProposer.getTargetUnits();
+                const targetUnits = await dsEthProposer.getTargetUnits();
                 expect(targetUnits.length).to.equal(numberOfPools);
             });
             it("Should return distinct values", async function () {
-                const targetUnits =
-                    await dsEthProposer.getTargetUnits();
-                for(let i = 0; i < numberOfPools - 1; i++) {
+                const targetUnits = await dsEthProposer.getTargetUnits();
+                for (let i = 0; i < numberOfPools - 1; i++) {
                     expect(targetUnits[i].eq(targetUnits[i + 1])).to.be.false;
                 }
             });
             it("All values should be greater than 0.1 ether", async function () {
-                const targetUnits =
-                    await dsEthProposer.getTargetUnits();
-                for(let i = 0; i < numberOfPools - 1; i++) {
-                    expect(targetUnits[i].gt(ethers.utils.parseEther("0.1"))).to.be.true;
+                const targetUnits = await dsEthProposer.getTargetUnits();
+                for (let i = 0; i < numberOfPools - 1; i++) {
+                    expect(targetUnits[i].gt(ethers.utils.parseEther("0.1"))).to
+                        .be.true;
                 }
             });
         });
