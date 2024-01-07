@@ -33,7 +33,7 @@ describe("Calculate dsETH auction rebalance params", function () {
             ratedAccessToken,
             ratedApiUrl,
             auctionConfig,
-            proposerSigner
+            proposerSigner,
         );
     });
 
@@ -47,9 +47,8 @@ describe("Calculate dsETH auction rebalance params", function () {
         });
         describe("#getSetTokenNavInWei", function () {
             it("should return correct value", async function () {
-                const nav = await dsEthProposer.getSetTokenNavInWei(
-                    dsEthAddress
-                );
+                const nav =
+                    await dsEthProposer.getSetTokenNavInWei(dsEthAddress);
                 // TODO: Tests for expected value at block number for each pool
             });
         });
@@ -58,7 +57,7 @@ describe("Calculate dsETH auction rebalance params", function () {
     describe("Rated API integration", function () {
         function mockRatedEndpoint(
             path: string | RegExp,
-            responseFunction: (params: any) => [number, any]
+            responseFunction: (params: any) => [number, any],
         ) {
             axiosMock.onGet(path).reply(responseFunction);
         }
@@ -107,7 +106,7 @@ describe("Calculate dsETH auction rebalance params", function () {
                 }
                 // Assumption: Stader is always last in the list
                 expect(operatorCounts[numberOfPools - 1]).to.equal(
-                    defaultOperatorCount * 2
+                    defaultOperatorCount * 2,
                 );
             });
         });
@@ -135,8 +134,8 @@ describe("Calculate dsETH auction rebalance params", function () {
                 // Assumption: Lido is always first in the list
                 expect(validatorDistribution[0]).to.deep.equal(
                     poolIdToValidatorData["Lido"].map(
-                        (data: any) => data.validatorCount
-                    )
+                        (data: any) => data.validatorCount,
+                    ),
                 );
                 // Assumption: Stader is always last in the list
                 expect(validatorDistribution[numberOfPools - 1]).to.deep.equal([

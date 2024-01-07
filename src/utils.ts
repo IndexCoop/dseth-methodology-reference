@@ -13,7 +13,7 @@ export function parseEther(ether: string): BigNum {
  */
 export const toWei = (
     valueToConvert: number | string,
-    power: number = 18
+    power: number = 18,
 ): BigNum => {
     // parseUnits only accepts strings
     let value =

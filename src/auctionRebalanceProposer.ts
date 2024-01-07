@@ -67,7 +67,7 @@ export class AuctionRebalanceProposer {
         private readonly ratedAccessToken: string,
         private readonly ratedApiUrl: string,
         private readonly auctionConfig: AuctionConfig,
-        private readonly signer: Signer
+        private readonly signer: Signer,
     ) {
         this.ratedApi = new RatedApiService(this.ratedApiUrl);
     }
@@ -78,19 +78,19 @@ export class AuctionRebalanceProposer {
             this.getNodeOperatorWeightFactors(nodeOperatorCounts);
         const validatorDistribution = await this.getValidatorDistribution();
         const protocolHHIScores = await this.getProtocolHHIScores(
-            validatorDistribution
+            validatorDistribution,
         );
         const hhiFactors = this.getHHIWeightFactors(protocolHHIScores);
         const targetWeights = await this.getTargetWeights(
             nodeOperatorFactors,
-            hhiFactors
+            hhiFactors,
         );
         return this.calculateTargetUnits(targetWeights);
     }
 
     async getTargetWeights(
         nodeOperatorFactors: number[],
-        hhiFactors: number[]
+        hhiFactors: number[],
     ): Promise<number[]> {
         let targetWeights: number[] = [];
         const weightFactorSum =
@@ -99,7 +99,7 @@ export class AuctionRebalanceProposer {
             hhiFactors.reduce((a, b) => a + b);
         for (let i = 0; i < Object.keys(PoolIds).length; i++) {
             targetWeights.push(
-                (1 + nodeOperatorFactors[i] + hhiFactors[i]) / weightFactorSum
+                (1 + nodeOperatorFactors[i] + hhiFactors[i]) / weightFactorSum,
             );
         }
         return targetWeights;
@@ -115,7 +115,7 @@ export class AuctionRebalanceProposer {
                     const wstEthRateProvider = new Contract(
                         stakingTokenRateProviders[poolId],
                         WSTETH_ABI,
-                        this.signer
+                        this.signer,
                     );
                     const stEthPerWstETH =
                         await wstEthRateProvider.stEthPerToken();
@@ -126,7 +126,7 @@ export class AuctionRebalanceProposer {
                     const stEthRateProvider = new Contract(
                         stEthPriceFeed,
                         CHAINLINK_PRICE_FEED_ABI,
-                        this.signer
+                        this.signer,
                     );
                     const ethPerStEth = await stEthRateProvider.latestAnswer();
 
@@ -140,17 +140,17 @@ export class AuctionRebalanceProposer {
                     const rETHRateProvider = new Contract(
                         stakingTokenRateProviders[poolId],
                         RETH_ABI,
-                        this.signer
+                        this.signer,
                     );
                     ethExchangeRates.push(
-                        await rETHRateProvider.getExchangeRate()
+                        await rETHRateProvider.getExchangeRate(),
                     );
                     break;
                 case PoolIds.StakeWise:
                     const osETHRateProvider = new Contract(
                         stakingTokenRateProviders[poolId],
                         OSETH_PRICE_FEED_ABI,
-                        this.signer
+                        this.signer,
                     );
                     ethExchangeRates.push(await osETHRateProvider.getRate());
                     break;
@@ -158,17 +158,17 @@ export class AuctionRebalanceProposer {
                     const sfrxETHRateProvider = new Contract(
                         stakingTokenRateProviders[poolId],
                         SFRXETH_ABI,
-                        this.signer
+                        this.signer,
                     );
                     ethExchangeRates.push(
-                        await sfrxETHRateProvider.pricePerShare()
+                        await sfrxETHRateProvider.pricePerShare(),
                     ); // Returns frxETH per sfrxETH, which is pegged to ETH price +/- 1%
                     break;
                 case PoolIds.Swell:
                     const swETHRateProvider = new Contract(
                         stakingTokenRateProviders[poolId],
                         SWETH_ABI,
-                        this.signer
+                        this.signer,
                     );
                     ethExchangeRates.push(await swETHRateProvider.getRate());
                     break;
@@ -176,10 +176,10 @@ export class AuctionRebalanceProposer {
                     const ethXRateProvider = new Contract(
                         stakingTokenRateProviders[poolId],
                         ETHX_ABI,
-                        this.signer
+                        this.signer,
                     );
                     ethExchangeRates.push(
-                        await ethXRateProvider.getExchangeRate()
+                        await ethXRateProvider.getExchangeRate(),
                     );
                     break;
                 default:
@@ -193,17 +193,17 @@ export class AuctionRebalanceProposer {
         const setTokenContract = new Contract(
             setToken,
             SET_TOKEN_ABI,
-            this.signer
+            this.signer,
         );
         const components: string[] = await setTokenContract.getComponents();
         const currentUnits: BigNumber[] = await Promise.all(
             Object.values(stakingTokenAddresses).map(async (addr) => {
                 if (components.includes(addr))
                     return await setTokenContract.getDefaultPositionRealUnit(
-                        addr
+                        addr,
                     );
                 return BigNumber.from(0);
-            })
+            }),
         );
         const componentPricesInWei = await this.getEthExchangeRates();
 
@@ -212,9 +212,9 @@ export class AuctionRebalanceProposer {
                 a.add(
                     b
                         .mul(componentPricesInWei[i])
-                        .div(BigNumber.from(10).pow(18))
+                        .div(BigNumber.from(10).pow(18)),
                 ),
-            BigNumber.from(0)
+            BigNumber.from(0),
         );
     }
 
@@ -223,23 +223,23 @@ export class AuctionRebalanceProposer {
         const componentPricesInWei = await this.getEthExchangeRates();
 
         return targetWeights.map((weight, i) =>
-            nav.mul(toWei(weight)).div(componentPricesInWei[i])
+            nav.mul(toWei(weight)).div(componentPricesInWei[i]),
         );
     }
 
     async getProposeRebalanceParams(
-        targetUnits: BigNumber[]
+        targetUnits: BigNumber[],
     ): Promise<ProposeRebalanceParams> {
         const componentPricesInWei = await this.getEthExchangeRates();
         const priceAdapter = new Contract(
             this.auctionConfig.priceAdapterAddress,
             BOUNDED_STEPWISE_LINEAR_PRICE_ADAPTER_ABI,
-            this.signer
+            this.signer,
         );
         const setTokenContract = new Contract(
             this.setToken,
             SET_TOKEN_ABI,
-            this.signer
+            this.signer,
         );
         const oldComponents: string[] = await setTokenContract.getComponents();
         let newComponents: string[] = [];
@@ -257,7 +257,7 @@ export class AuctionRebalanceProposer {
                     this.auctionConfig,
                     componentPricesInWei[i],
                     targetUnits[i],
-                    isDecreasing
+                    isDecreasing,
                 );
                 oldComponentsAuctionParams.push(params);
             } else {
@@ -267,7 +267,7 @@ export class AuctionRebalanceProposer {
                     this.auctionConfig,
                     componentPricesInWei[i],
                     targetUnits[i],
-                    false
+                    false,
                 );
                 newComponentsAuctionParams.push(params);
             }
@@ -301,10 +301,10 @@ export class AuctionRebalanceProposer {
     getNodeOperatorWeightFactors(nodeOperatorCounts: number[]): number[] {
         const sqrtNodeOperatorTotal = nodeOperatorCounts.reduce(
             (a, b) => a + Math.sqrt(b),
-            0
+            0,
         );
         return nodeOperatorCounts.map(
-            (count) => Math.sqrt(count) / sqrtNodeOperatorTotal
+            (count) => Math.sqrt(count) / sqrtNodeOperatorTotal,
         );
     }
 
@@ -312,10 +312,10 @@ export class AuctionRebalanceProposer {
     getHHIWeightFactors(protocolHHIScores: number[]) {
         const sumOfProtocolHHIScores = protocolHHIScores.reduce(
             (a, b) => a + b,
-            0
+            0,
         );
         return protocolHHIScores.map(
-            (score: number) => score / sumOfProtocolHHIScores
+            (score: number) => score / sumOfProtocolHHIScores,
         );
     }
 
@@ -328,21 +328,21 @@ export class AuctionRebalanceProposer {
                 const permissionedNodeOpCount =
                     await this.ratedApi.getNodeOperatorCountForPool(
                         this.ratedAccessToken,
-                        "Stader - Permissioned"
+                        "Stader - Permissioned",
                     );
                 const permissionlessNodeOpCount =
                     await this.ratedApi.getNodeOperatorCountForPool(
                         this.ratedAccessToken,
-                        "Stader - Permissionless"
+                        "Stader - Permissionless",
                     );
                 nodeOperatorCounts.push(
-                    permissionedNodeOpCount + permissionlessNodeOpCount
+                    permissionedNodeOpCount + permissionlessNodeOpCount,
                 );
             } else {
                 const nodeOperatorCount =
                     await this.ratedApi.getNodeOperatorCountForPool(
                         this.ratedAccessToken,
-                        poolId
+                        poolId,
                     );
                 nodeOperatorCounts.push(nodeOperatorCount);
             }
@@ -361,20 +361,20 @@ export class AuctionRebalanceProposer {
             } else if (poolId === PoolIds.Stader) {
                 const permissionedValidatorCounts =
                     await this.getValidatorCountsByNodeOpForPool(
-                        "Stader - Permissioned"
+                        "Stader - Permissioned",
                     );
                 const permissionlessValidatorCounts =
                     await this.getValidatorCountsByNodeOpForPool(
-                        "Stader - Permissionless"
+                        "Stader - Permissionless",
                     );
                 validatorDistribution.push(
                     permissionedValidatorCounts.concat(
-                        permissionlessValidatorCounts
-                    )
+                        permissionlessValidatorCounts,
+                    ),
                 );
             } else {
                 validatorDistribution.push(
-                    await this.getValidatorCountsByNodeOpForPool(poolId)
+                    await this.getValidatorCountsByNodeOpForPool(poolId),
                 );
             }
         }
@@ -385,18 +385,18 @@ export class AuctionRebalanceProposer {
     // Returns array of protocol HHI Scores
     // Protocol HHI Score = 10000 - sum of (% validator share of each node operator) ^ 2
     async getProtocolHHIScores(
-        validatorDistribution: number[][]
+        validatorDistribution: number[][],
     ): Promise<number[]> {
         return validatorDistribution.map((nodeOpValidatorCounts: number[]) => {
             const totalValidatorsInPool = nodeOpValidatorCounts.reduce(
                 (a, b) => a + b,
-                0
+                0,
             );
             const sumOfNodeOperatorHHI = nodeOpValidatorCounts.reduce(
                 (a, nodeOpCount) =>
                     a +
                     Math.pow((nodeOpCount / totalValidatorsInPool) * 100, 2),
-                0
+                0,
             );
 
             return 10000 - sumOfNodeOperatorHHI;
@@ -408,7 +408,7 @@ export class AuctionRebalanceProposer {
         config: AuctionConfig,
         priceInWei: BigNumber,
         targetUnit: BigNumber,
-        isDecreasing: boolean
+        isDecreasing: boolean,
     ): Promise<AuctionExecutionParams> {
         const initialPrice = isDecreasing
             ? priceInWei.mul(toWei(config.initialPricePctSellComponents))
@@ -417,10 +417,10 @@ export class AuctionRebalanceProposer {
             ? priceInWei.mul(toWei(config.slopeForSellComponents))
             : priceInWei.mul(toWei(config.slopeForBuyComponents));
         const maxPrice = priceInWei.mul(
-            toWei(config.maxPriceAsPercentOfMarketPrice)
+            toWei(config.maxPriceAsPercentOfMarketPrice),
         );
         const minPrice = priceInWei.mul(
-            toWei(config.minPriceAsPercentOfMarketPrice)
+            toWei(config.minPriceAsPercentOfMarketPrice),
         );
 
         const priceAdapterData = await priceAdapter.getEncodedData(
@@ -429,7 +429,7 @@ export class AuctionRebalanceProposer {
             config.bucketSize,
             isDecreasing,
             maxPrice,
-            minPrice
+            minPrice,
         );
 
         return {
@@ -448,7 +448,7 @@ export class AuctionRebalanceProposer {
             this.ratedAccessToken,
             poolId,
             size,
-            from
+            from,
         );
         page.data.forEach((nodeOperator: any) => {
             validatorCounts.push(nodeOperator.validatorCount);
@@ -461,7 +461,7 @@ export class AuctionRebalanceProposer {
                 this.ratedAccessToken,
                 poolId,
                 size,
-                from
+                from,
             );
             page.data.forEach((nodeOperator: any) => {
                 validatorCounts.push(nodeOperator.validatorCount);
