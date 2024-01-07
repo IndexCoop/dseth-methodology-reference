@@ -52,7 +52,7 @@ jobs:
         uses: creyD/prettier_action@v4.3
         with:
           dry: True
-          prettier_options: --check **/*.ts
+          prettier_options: --write **/*.ts
 
 
 
