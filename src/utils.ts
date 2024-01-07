@@ -1,7 +1,7 @@
 import { BigNum, ethers} from "ethers";
 
 export function parseEther(ether: string): BigNum {
-  return ethers.parseEther(ether);
+  return ethers.utils.parseEther(ether);
 }
 
 /**
@@ -26,7 +26,7 @@ export const toWei = (
   let fractionalPart = splits[1]
 
   if (!fractionalPart) {
-    return ethers.parseUnits(integerPart, power)
+    return ethers.utils.parseUnits(integerPart, power)
   }
 
   if (fractionalPart.length > power) {
@@ -35,5 +35,5 @@ export const toWei = (
   }
 
   value = integerPart + '.' + fractionalPart
-  return ethers.parseUnits(value, power)
+  return ethers.utils.parseUnits(value, power)
 }

@@ -60,16 +60,27 @@ type ProposeRebalanceParams = {
 };
 
 export class AuctionRebalanceProposer {
-  private ratedApi = new RatedApiService();
+  private ratedApi: RatedApiService;
 
   constructor(
     private readonly setToken: string,
     private readonly ratedAccessToken: string,
-    // @ts-ignore
-    private readonly coingeckoApiKey: string,
+    private readonly ratedApiUrl: string,
     private readonly auctionConfig: AuctionConfig,
     private readonly signer: Signer,
-  ) {};
+  ) {
+    this.ratedApi = new RatedApiService(this.ratedApiUrl);
+  };
+
+  async getTargetUnits(): Promise<BigNumber[]> {
+    const nodeOperatorCounts = await this.getNodeOperatorCounts();
+    const nodeOperatorFactors = this.getNodeOperatorWeightFactors(nodeOperatorCounts);
+    const validatorDistribution = await this.getValidatorDistribution();
+    const protocolHHIScores = await this.getProtocolHHIScores(validatorDistribution);
+    const hhiFactors = this.getHHIWeightFactors(protocolHHIScores)
+    const targetWeights = await this.getTargetWeights(nodeOperatorFactors, hhiFactors);
+    return this.calculateTargetUnits(targetWeights);
+  }
 
   async getTargetWeights(nodeOperatorFactors: number[], hhiFactors: number[]): Promise<number[]> {
     let targetWeights: number[] = [];
@@ -138,7 +149,7 @@ export class AuctionRebalanceProposer {
     return currentUnits.reduce((a: BigNumber, b, i) => a.add(b.mul(componentPricesInWei[i]).div(BigNumber.from(10).pow(18))), BigNumber.from(0));
   }
 
-  async getTargetUnits(targetWeights: number[]): Promise<BigNumber[]> {
+  async calculateTargetUnits(targetWeights: number[]): Promise<BigNumber[]> {
     const nav = await this.getSetTokenNavInWei(this.setToken);
     const componentPricesInWei = await this.getEthExchangeRates();
     
@@ -169,7 +180,6 @@ export class AuctionRebalanceProposer {
       }
       i++;
 
-      console.log("target units", targetUnits.toString());
     }
   
     return {
@@ -294,7 +304,7 @@ export class AuctionRebalanceProposer {
     });
   
     // @ts-ignore
-    while (page.next !== null) {
+    while (page.next != null) {
       from += size;
       page = await this.ratedApi.getPaginatedNodeOperators(this.ratedAccessToken, poolId, size, from);
       page.data.forEach((nodeOperator: any) => {
