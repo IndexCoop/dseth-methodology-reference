@@ -1,0 +1,1499 @@
+{
+    "page": {
+        "from": 0,
+        "to": null,
+        "size": 1000,
+        "granularity": null,
+        "filterType": null
+    },
+    "total": 35,
+    "data": [
+        {
+            "id": "Nethermind - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 10001,
+            "avgCorrectness": 0.9900546357255333,
+            "avgInclusionDelay": 1.0353587766717496,
+            "avgUptime": 0.9998968991989691,
+            "avgValidatorEffectiveness": 96.50975653062925,
+            "clientPercentages": [
+                { "client": "Lighthouse", "percentage": 0.41843585556160406 },
+                { "client": "Nimbus", "percentage": 0.03810560696788242 },
+                { "client": "Prysm", "percentage": 0.37742696425331157 },
+                { "client": "Teku", "percentage": 0.16603157321720197 }
+            ],
+            "networkPenetration": 0.011032080287864381,
+            "relayerPercentages": [
+                { "relayer": "aestus", "percentage": 0.04938271604938271 },
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.006172839506172839
+                },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.2654320987654321
+                },
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.25308641975308643
+                },
+                { "relayer": "flashbots", "percentage": 0.09259259259259259 },
+                { "relayer": "agnostic", "percentage": 0.12962962962962962 },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.2037037037037037
+                }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Nethermind",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Nethermind",
+            "aprPercentage": 3.5
+        },
+        {
+            "id": "Kukis Global - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 10001,
+            "avgCorrectness": 0.9890701615365505,
+            "avgInclusionDelay": 1.0338636998967592,
+            "avgUptime": 0.999935117599351,
+            "avgValidatorEffectiveness": 96.48820590002406,
+            "clientPercentages": [
+                { "client": "Prysm", "percentage": 0.1423604757548033 },
+                { "client": "Nimbus", "percentage": 0.0010978956999085087 },
+                { "client": "Teku", "percentage": 0.00018298261665141812 },
+                { "client": "Lighthouse", "percentage": 0.8563586459286368 }
+            ],
+            "networkPenetration": 0.011032080287864381,
+            "relayerPercentages": [
+                { "relayer": "flashbots", "percentage": 0.03125 },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.5104166666666666
+                },
+                { "relayer": "agnostic", "percentage": 0.1875 },
+                { "relayer": "aestus", "percentage": 0.07291666666666667 },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.17708333333333334
+                },
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.020833333333333332
+                }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Kukis Global",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Kukis Global",
+            "aprPercentage": 3.53
+        },
+        {
+            "id": "Prysm Team at Offchain Labs - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 10001,
+            "avgCorrectness": 0.9882775408885776,
+            "avgInclusionDelay": 1.0340169137703554,
+            "avgUptime": 0.9996902531969025,
+            "avgValidatorEffectiveness": 96.41175360347125,
+            "clientPercentages": [{ "client": "Prysm", "percentage": 1 }],
+            "networkPenetration": 0.011032080287864381,
+            "relayerPercentages": [
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.038461538461538464
+                },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.9615384615384616
+                }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Prysm Team at Offchain Labs",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Prysm Team at Offchain Labs",
+            "aprPercentage": 3.5
+        },
+        {
+            "id": "Attestant - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 10001,
+            "avgCorrectness": 0.9883363192154663,
+            "avgInclusionDelay": 1.0351723730274178,
+            "avgUptime": 0.9999146751991467,
+            "avgValidatorEffectiveness": 96.36292362127764,
+            "clientPercentages": [
+                { "client": "Prysm", "percentage": 0.16155787955283088 },
+                { "client": "Teku", "percentage": 0.428416877028489 },
+                { "client": "Nimbus", "percentage": 0.33736025964659216 },
+                { "client": "Lighthouse", "percentage": 0.072664983772088 }
+            ],
+            "networkPenetration": 0.011032080287864381,
+            "relayerPercentages": [
+                { "relayer": "flashbots", "percentage": 0.06666666666666667 },
+                { "relayer": "no_mev_boost", "percentage": 0.2962962962962963 },
+                { "relayer": "agnostic", "percentage": 0.11851851851851852 },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.1925925925925926
+                },
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.18518518518518517
+                },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.11851851851851852
+                },
+                { "relayer": "aestus", "percentage": 0.022222222222222223 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Attestant",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Attestant",
+            "aprPercentage": 3.71
+        },
+        {
+            "id": "Blockdaemon - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 10001,
+            "avgCorrectness": 0.9879273119560659,
+            "avgInclusionDelay": 1.0351524608456364,
+            "avgUptime": 0.999646701996467,
+            "avgValidatorEffectiveness": 96.3107419612298,
+            "clientPercentages": [
+                { "client": "Prysm", "percentage": 0.9965022091310751 },
+                { "client": "Lighthouse", "percentage": 0.001840942562592047 },
+                { "client": "Teku", "percentage": 0.0016568483063328424 }
+            ],
+            "networkPenetration": 0.011032080287864381,
+            "relayerPercentages": [
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.04411764705882353
+                },
+                { "relayer": "flashbots", "percentage": 0.3088235294117647 },
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.6470588235294118
+                }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Blockdaemon",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Blockdaemon",
+            "aprPercentage": 3.38
+        },
+        {
+            "id": "Stakely - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 10001,
+            "avgCorrectness": 0.9878158599818294,
+            "avgInclusionDelay": 1.0402924193604361,
+            "avgUptime": 0.9988307835883078,
+            "avgValidatorEffectiveness": 96.02679874117311,
+            "clientPercentages": [
+                { "client": "Teku", "percentage": 0.6343949044585987 },
+                { "client": "Nimbus", "percentage": 0.039126478616924476 },
+                { "client": "Lighthouse", "percentage": 0.30172884440400366 },
+                { "client": "Prysm", "percentage": 0.024749772520473157 }
+            ],
+            "networkPenetration": 0.011032080287864381,
+            "relayerPercentages": [
+                { "relayer": "flashbots", "percentage": 0.06779661016949153 },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.2711864406779661
+                },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.192090395480226
+                },
+                { "relayer": "aestus", "percentage": 0.06779661016949153 },
+                { "relayer": "agnostic", "percentage": 0.12994350282485875 },
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.2711864406779661
+                }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Stakely",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Stakely",
+            "aprPercentage": 3.61
+        },
+        {
+            "id": "HashQuark - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 10001,
+            "avgCorrectness": 0.9856443311802868,
+            "avgInclusionDelay": 1.0384453960846802,
+            "avgUptime": 0.9995516003955158,
+            "avgValidatorEffectiveness": 95.90546534645487,
+            "clientPercentages": [
+                { "client": "Nimbus", "percentage": 0.0001849112426035503 },
+                { "client": "Lighthouse", "percentage": 0.0022189349112426036 },
+                { "client": "Teku", "percentage": 0.0007396449704142012 },
+                { "client": "Prysm", "percentage": 0.9968565088757396 }
+            ],
+            "networkPenetration": 0.011032080287864381,
+            "relayerPercentages": [
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.036231884057971016
+                },
+                { "relayer": "flashbots", "percentage": 0.13043478260869565 },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.2826086956521739
+                },
+                { "relayer": "agnostic", "percentage": 0.2246376811594203 },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.32608695652173914
+                }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/HashQuark",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "HashQuark",
+            "aprPercentage": 3.47
+        },
+        {
+            "id": "CryptoManufaktur - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 10001,
+            "avgCorrectness": 0.9865821062372822,
+            "avgInclusionDelay": 1.0384313606675486,
+            "avgUptime": 0.9974073703740736,
+            "avgValidatorEffectiveness": 95.83960622975144,
+            "clientPercentages": [
+                { "client": "Teku", "percentage": 0.834334607682505 },
+                { "client": "Nimbus", "percentage": 0.12270162024394685 },
+                { "client": "Lighthouse", "percentage": 0.015838339705079193 },
+                { "client": "Prysm", "percentage": 0.02712543236846896 }
+            ],
+            "networkPenetration": 0.011032080287864381,
+            "relayerPercentages": [
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.17721518987341772
+                },
+                { "relayer": "flashbots", "percentage": 0.5189873417721519 },
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.05063291139240506
+                },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.17721518987341772
+                },
+                { "relayer": "aestus", "percentage": 0.06329113924050633 },
+                { "relayer": "edennetwork", "percentage": 0.012658227848101266 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/CryptoManufaktur",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "CryptoManufaktur",
+            "aprPercentage": 3.77
+        },
+        {
+            "id": "Sigma Prime - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 10001,
+            "avgCorrectness": 0.9827210835953237,
+            "avgInclusionDelay": 1.0431103561439161,
+            "avgUptime": 0.9993711739937118,
+            "avgValidatorEffectiveness": 95.3766265046789,
+            "clientPercentages": [{ "client": "Lighthouse", "percentage": 1 }],
+            "networkPenetration": 0.011032080287864381,
+            "relayerPercentages": [
+                { "relayer": "aestus", "percentage": 0.011494252873563218 },
+                { "relayer": "flashbots", "percentage": 0.04597701149425287 },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.12643678160919541
+                },
+                { "relayer": "agnostic", "percentage": 0.11494252873563218 },
+                { "relayer": "no_mev_boost", "percentage": 0.7011494252873564 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Sigma Prime",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Sigma Prime",
+            "aprPercentage": 3.8
+        },
+        {
+            "id": "ChainSafe - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 10000,
+            "avgCorrectness": 0.9809472719292026,
+            "avgInclusionDelay": 1.0500911693082504,
+            "avgUptime": 0.9966804444444443,
+            "avgValidatorEffectiveness": 94.71599313863736,
+            "clientPercentages": [{ "client": "Lodestar", "percentage": 1 }],
+            "networkPenetration": 0.011030977190145366,
+            "relayerPercentages": [
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.041666666666666664
+                },
+                { "relayer": "agnostic", "percentage": 0.08333333333333333 },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.1388888888888889
+                },
+                { "relayer": "no_mev_boost", "percentage": 0.7361111111111112 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/ChainSafe",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "ChainSafe",
+            "aprPercentage": 3.24
+        },
+        {
+            "id": "Stakin - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 10000,
+            "avgCorrectness": 0.97852178602327,
+            "avgInclusionDelay": 1.060990467766152,
+            "avgUptime": 0.9546555555555556,
+            "avgValidatorEffectiveness": 90.29199579126157,
+            "clientPercentages": [
+                { "client": "Teku", "percentage": 0.9941744037866376 },
+                { "client": "Nimbus", "percentage": 0.005461496450027308 },
+                { "client": "Prysm", "percentage": 0.0003640997633351538 }
+            ],
+            "networkPenetration": 0.011030977190145366,
+            "relayerPercentages": [
+                { "relayer": "aestus", "percentage": 0.010638297872340425 },
+                { "relayer": "no_mev_boost", "percentage": 0.6382978723404256 },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.09574468085106383
+                },
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.05319148936170213
+                },
+                { "relayer": "agnostic", "percentage": 0.0851063829787234 },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.07446808510638298
+                },
+                { "relayer": "flashbots", "percentage": 0.0425531914893617 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Stakin",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Stakin",
+            "aprPercentage": 3.29
+        },
+        {
+            "id": "Simply Staking - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 9555,
+            "avgCorrectness": 0.9772944217424413,
+            "avgInclusionDelay": 1.0589502861105242,
+            "avgUptime": 0.9974770626199198,
+            "avgValidatorEffectiveness": 94.02564187759076,
+            "clientPercentages": [
+                { "client": "Nimbus", "percentage": 0.1553222302679218 },
+                { "client": "Prysm", "percentage": 0.5229905865314989 },
+                { "client": "Teku", "percentage": 0.008508327299058652 },
+                { "client": "Lighthouse", "percentage": 0.3131788559015206 }
+            ],
+            "networkPenetration": 0.010540098705183897,
+            "relayerPercentages": [
+                { "relayer": "flashbots", "percentage": 0.04 },
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.03333333333333333
+                },
+                { "relayer": "agnostic", "percentage": 0.20666666666666667 },
+                { "relayer": "ultra_sound_money", "percentage": 0.28 },
+                { "relayer": "aestus", "percentage": 0.09333333333333334 },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.16666666666666666
+                },
+                { "relayer": "bloxroute_regulated", "percentage": 0.18 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Simply Staking",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Simply Staking",
+            "aprPercentage": 3.48
+        },
+        {
+            "id": "BridgeTower - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 9063,
+            "avgCorrectness": 0.9781993909340224,
+            "avgInclusionDelay": 1.0675277565545391,
+            "avgUptime": 0.9974298429511934,
+            "avgValidatorEffectiveness": 93.71639129220873,
+            "clientPercentages": [{ "client": "Lighthouse", "percentage": 1 }],
+            "networkPenetration": 0.009997374627428746,
+            "relayerPercentages": [
+                { "relayer": "flashbots", "percentage": 0.053763440860215055 },
+                { "relayer": "agnostic", "percentage": 0.043010752688172046 },
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.043010752688172046
+                },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.7419354838709677
+                },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.11827956989247312
+                }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/BridgeTower",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "BridgeTower",
+            "aprPercentage": 4.02
+        },
+        {
+            "id": "Figment - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 9041,
+            "avgCorrectness": 0.9885328587065699,
+            "avgInclusionDelay": 1.0374816125572157,
+            "avgUptime": 0.9995536383635045,
+            "avgValidatorEffectiveness": 96.2276685698514,
+            "clientPercentages": [
+                { "client": "Lighthouse", "percentage": 0.9866046511627907 },
+                { "client": "Teku", "percentage": 0.012837209302325582 },
+                { "client": "Nimbus", "percentage": 0.0005581395348837209 }
+            ],
+            "networkPenetration": 0.009973106477610426,
+            "relayerPercentages": [
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.8928571428571429
+                },
+                { "relayer": "flashbots", "percentage": 0.09523809523809523 },
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.011904761904761904
+                }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Figment",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Figment",
+            "aprPercentage": 4.05
+        },
+        {
+            "id": "Everstake - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 9041,
+            "avgCorrectness": 0.986223383770087,
+            "avgInclusionDelay": 1.0419358379906556,
+            "avgUptime": 0.9986058572675098,
+            "avgValidatorEffectiveness": 95.71404820049364,
+            "clientPercentages": [
+                { "client": "Prysm", "percentage": 0.9959424566580598 },
+                { "client": "Nimbus", "percentage": 0.00036886757654002215 },
+                { "client": "Teku", "percentage": 0.0025820730357801547 },
+                { "client": "Lighthouse", "percentage": 0.0011066027296200663 }
+            ],
+            "networkPenetration": 0.009973106477610426,
+            "relayerPercentages": [
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.017341040462427744
+                },
+                { "relayer": "agnostic", "percentage": 0.14450867052023122 },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.1907514450867052
+                },
+                { "relayer": "aestus", "percentage": 0.057803468208092484 },
+                { "relayer": "flashbots", "percentage": 0.06936416184971098 },
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.2543352601156069
+                },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.2658959537572254
+                }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Everstake",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Everstake",
+            "aprPercentage": 3.82
+        },
+        {
+            "id": "ChainLayer - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 9031,
+            "avgCorrectness": 0.9817273119339536,
+            "avgInclusionDelay": 1.0548195428501017,
+            "avgUptime": 0.9984743906790192,
+            "avgValidatorEffectiveness": 94.69760715052365,
+            "clientPercentages": [
+                { "client": "Nimbus", "percentage": 0.0003753049352598987 },
+                { "client": "Lighthouse", "percentage": 0.7995871645712141 },
+                { "client": "Teku", "percentage": 0.200037530493526 }
+            ],
+            "networkPenetration": 0.00996207550042028,
+            "relayerPercentages": [
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.8985507246376812
+                },
+                { "relayer": "flashbots", "percentage": 0.07246376811594203 },
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.028985507246376812
+                }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/ChainLayer",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "ChainLayer",
+            "aprPercentage": 3.54
+        },
+        {
+            "id": "RockX - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 8923,
+            "avgCorrectness": 0.9900811401192959,
+            "avgInclusionDelay": 1.032714404977993,
+            "avgUptime": 0.9999407274583784,
+            "avgValidatorEffectiveness": 96.65144994583652,
+            "clientPercentages": [
+                { "client": "Lighthouse", "percentage": 0.21021648309912647 },
+                { "client": "Prysm", "percentage": 0.7880744398025067 },
+                { "client": "Nimbus", "percentage": 0.00018989745537409798 },
+                { "client": "Teku", "percentage": 0.0015191796429927839 }
+            ],
+            "networkPenetration": 0.00984294094676671,
+            "relayerPercentages": [
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.10650887573964497
+                },
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.31952662721893493
+                },
+                { "relayer": "agnostic", "percentage": 0.08875739644970414 },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.31952662721893493
+                },
+                { "relayer": "flashbots", "percentage": 0.11242603550295859 },
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.005917159763313609
+                },
+                { "relayer": "aestus", "percentage": 0.047337278106508875 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/RockX",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "RockX",
+            "aprPercentage": 3.54
+        },
+        {
+            "id": "Allnodes - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 8923,
+            "avgCorrectness": 0.9906165060015468,
+            "avgInclusionDelay": 1.0374217121858211,
+            "avgUptime": 0.9997519518846428,
+            "avgValidatorEffectiveness": 96.44390604369744,
+            "clientPercentages": [
+                { "client": "Nimbus", "percentage": 0.003816793893129771 },
+                { "client": "Prysm", "percentage": 0.00019083969465648855 },
+                { "client": "Teku", "percentage": 0.9959923664122138 }
+            ],
+            "networkPenetration": 0.00984294094676671,
+            "relayerPercentages": [
+                { "relayer": "agnostic", "percentage": 0.12359550561797752 },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.1797752808988764
+                },
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.25842696629213485
+                },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.2752808988764045
+                },
+                { "relayer": "flashbots", "percentage": 0.10112359550561797 },
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.016853932584269662
+                },
+                { "relayer": "aestus", "percentage": 0.03932584269662921 },
+                { "relayer": "manifold", "percentage": 0.0056179775280898875 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Allnodes",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Allnodes",
+            "aprPercentage": 3.73
+        },
+        {
+            "id": "DSRV - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 8905,
+            "avgCorrectness": 0.9832315948619033,
+            "avgInclusionDelay": 1.0471039381006455,
+            "avgUptime": 0.9990397404703973,
+            "avgValidatorEffectiveness": 95.26531676007244,
+            "clientPercentages": [
+                { "client": "Teku", "percentage": 0.0001932367149758454 },
+                { "client": "Nimbus", "percentage": 0.20946859903381643 },
+                { "client": "Lighthouse", "percentage": 0.6857971014492754 },
+                { "client": "Prysm", "percentage": 0.10454106280193237 }
+            ],
+            "networkPenetration": 0.00982308518782445,
+            "relayerPercentages": [
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.33980582524271846
+                },
+                { "relayer": "aestus", "percentage": 0.07766990291262135 },
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.11650485436893204
+                },
+                { "relayer": "flashbots", "percentage": 0.05825242718446602 },
+                { "relayer": "agnostic", "percentage": 0.24271844660194175 },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.14563106796116504
+                },
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.009708737864077669
+                },
+                { "relayer": "manifold", "percentage": 0.009708737864077669 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/DSRV",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "DSRV",
+            "aprPercentage": 3.51
+        },
+        {
+            "id": "P2P.ORG - P2P Validator - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 8878,
+            "avgCorrectness": 0.9885606546212091,
+            "avgInclusionDelay": 1.0423390489163094,
+            "avgUptime": 0.999664589121674,
+            "avgValidatorEffectiveness": 96.06078506380494,
+            "clientPercentages": [
+                { "client": "Nimbus", "percentage": 0.000992063492063492 },
+                { "client": "Teku", "percentage": 0.12182539682539682 },
+                { "client": "Prysm", "percentage": 0.8515873015873016 },
+                { "client": "Lighthouse", "percentage": 0.025595238095238095 }
+            ],
+            "networkPenetration": 0.009793301549411056,
+            "relayerPercentages": [
+                { "relayer": "agnostic", "percentage": 0.1951219512195122 },
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.24390243902439024
+                },
+                { "relayer": "flashbots", "percentage": 0.04878048780487805 },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.2682926829268293
+                },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.17073170731707318
+                },
+                { "relayer": "aestus", "percentage": 0.036585365853658534 },
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.036585365853658534
+                }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/P2P.ORG - P2P Validator",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "P2P.ORG - P2P Validator",
+            "aprPercentage": 3.42
+        },
+        {
+            "id": "Consensys - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 8875,
+            "avgCorrectness": 0.9886571644965891,
+            "avgInclusionDelay": 1.0367611905742695,
+            "avgUptime": 0.9992984037558684,
+            "avgValidatorEffectiveness": 96.27299131576541,
+            "clientPercentages": [
+                { "client": "Lighthouse", "percentage": 0.49786715417428395 },
+                { "client": "Teku", "percentage": 0.502132845825716 }
+            ],
+            "networkPenetration": 0.009789992256254012,
+            "relayerPercentages": [
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.008264462809917356
+                },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.23140495867768596
+                },
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.2231404958677686
+                },
+                { "relayer": "agnostic", "percentage": 0.1652892561983471 },
+                { "relayer": "flashbots", "percentage": 0.09090909090909091 },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.19834710743801653
+                },
+                { "relayer": "aestus", "percentage": 0.08264462809917356 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Consensys",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Consensys",
+            "aprPercentage": 4.45
+        },
+        {
+            "id": "Chorus One - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 8853,
+            "avgCorrectness": 0.9864905681238519,
+            "avgInclusionDelay": 1.0432230455901237,
+            "avgUptime": 0.9989306826311231,
+            "avgValidatorEffectiveness": 95.6742778855442,
+            "clientPercentages": [{ "client": "Lighthouse", "percentage": 1 }],
+            "networkPenetration": 0.009765724106435694,
+            "relayerPercentages": [
+                { "relayer": "agnostic", "percentage": 0.2912621359223301 },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.3592233009708738
+                },
+                { "relayer": "flashbots", "percentage": 0.0970873786407767 },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.24271844660194175
+                },
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.009708737864077669
+                }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Chorus One",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Chorus One",
+            "aprPercentage": 3.48
+        },
+        {
+            "id": "Blockscape - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 8830,
+            "avgCorrectness": 0.9894815182586724,
+            "avgInclusionDelay": 1.03569153642142,
+            "avgUptime": 0.9995887756386058,
+            "avgValidatorEffectiveness": 96.43902865316939,
+            "clientPercentages": [
+                { "client": "Prysm", "percentage": 0.7462326702833032 },
+                { "client": "Teku", "percentage": 0.21719911593329314 },
+                { "client": "Lighthouse", "percentage": 0.032951577255374724 },
+                { "client": "Nimbus", "percentage": 0.003616636528028933 }
+            ],
+            "networkPenetration": 0.009740352858898358,
+            "relayerPercentages": [
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.01834862385321101
+                },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.3119266055045872
+                },
+                { "relayer": "flashbots", "percentage": 0.06422018348623854 },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.1926605504587156
+                },
+                { "relayer": "aestus", "percentage": 0.045871559633027525 },
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.30275229357798167
+                },
+                { "relayer": "agnostic", "percentage": 0.06422018348623854 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Blockscape",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Blockscape",
+            "aprPercentage": 3.71
+        },
+        {
+            "id": "Kiln - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 8809,
+            "avgCorrectness": 0.9891345290619411,
+            "avgInclusionDelay": 1.0382046095570094,
+            "avgUptime": 0.9992275576746004,
+            "avgValidatorEffectiveness": 96.25723456331657,
+            "clientPercentages": [
+                { "client": "Lighthouse", "percentage": 0.0034122842232035327 },
+                { "client": "Teku", "percentage": 0.29566439181051785 },
+                { "client": "Prysm", "percentage": 0.6995182657567242 },
+                { "client": "Nimbus", "percentage": 0.0014050582095543958 }
+            ],
+            "networkPenetration": 0.009717187806799053,
+            "relayerPercentages": [
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.014084507042253521
+                },
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.352112676056338
+                },
+                { "relayer": "aestus", "percentage": 0.07042253521126761 },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.34507042253521125
+                },
+                { "relayer": "flashbots", "percentage": 0.09154929577464789 },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.1267605633802817
+                }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Kiln",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Kiln",
+            "aprPercentage": 3.52
+        },
+        {
+            "id": "RockLogic GmbH - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 8558,
+            "avgCorrectness": 0.9824224858515761,
+            "avgInclusionDelay": 1.0514543676454693,
+            "avgUptime": 0.9946410116590064,
+            "avgValidatorEffectiveness": 94.62068515775249,
+            "clientPercentages": [
+                { "client": "Teku", "percentage": 0.3842119066351954 },
+                { "client": "Prysm", "percentage": 0.2111198531340152 },
+                { "client": "Lighthouse", "percentage": 0.2071859428271702 },
+                { "client": "Nimbus", "percentage": 0.1974822974036192 }
+            ],
+            "networkPenetration": 0.009440310279326404,
+            "relayerPercentages": [
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.05785123966942149
+                },
+                { "relayer": "aestus", "percentage": 0.09090909090909091 },
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.2066115702479339
+                },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.23140495867768596
+                },
+                { "relayer": "flashbots", "percentage": 0.04132231404958678 },
+                { "relayer": "agnostic", "percentage": 0.1487603305785124 },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.2231404958677686
+                }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/RockLogic GmbH",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "RockLogic GmbH",
+            "aprPercentage": 3.38
+        },
+        {
+            "id": "Stakefish - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 8490,
+            "avgCorrectness": 0.9866666736526779,
+            "avgInclusionDelay": 1.039377001492212,
+            "avgUptime": 0.9991236749116608,
+            "avgValidatorEffectiveness": 95.94191813739218,
+            "clientPercentages": [
+                { "client": "Lighthouse", "percentage": 0.4817254568635784 },
+                { "client": "Nimbus", "percentage": 0.003399915002124947 },
+                { "client": "Teku", "percentage": 0.5148746281342966 }
+            ],
+            "networkPenetration": 0.009365299634433416,
+            "relayerPercentages": [
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.2826086956521739
+                },
+                { "relayer": "agnostic", "percentage": 0.13043478260869565 },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.32608695652173914
+                },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.18478260869565216
+                },
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.043478260869565216
+                },
+                { "relayer": "flashbots", "percentage": 0.03260869565217391 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Stakefish",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Stakefish",
+            "aprPercentage": 3.63
+        },
+        {
+            "id": "Staking Facilities - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 8400,
+            "avgCorrectness": 0.9883841559590878,
+            "avgInclusionDelay": 1.035234973927072,
+            "avgUptime": 0.9996380952380952,
+            "avgValidatorEffectiveness": 96.3296095782425,
+            "clientPercentages": [
+                { "client": "Teku", "percentage": 0.09094809094809095 },
+                { "client": "Nimbus", "percentage": 0.39017589017589016 },
+                { "client": "Lighthouse", "percentage": 0.04611754611754612 },
+                { "client": "Prysm", "percentage": 0.47275847275847277 }
+            ],
+            "networkPenetration": 0.009266020839722108,
+            "relayerPercentages": [
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.4065934065934066
+                },
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.1978021978021978
+                },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.15384615384615385
+                },
+                { "relayer": "flashbots", "percentage": 0.07692307692307693 },
+                { "relayer": "agnostic", "percentage": 0.12087912087912088 },
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.02197802197802198
+                },
+                { "relayer": "manifold", "percentage": 0.01098901098901099 },
+                { "relayer": "aestus", "percentage": 0.01098901098901099 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Staking Facilities",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Staking Facilities",
+            "aprPercentage": 3.69
+        },
+        {
+            "id": "SenseiNode - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 7000,
+            "avgCorrectness": 0.9790410167533218,
+            "avgInclusionDelay": 1.0524446281780167,
+            "avgUptime": 0.9983015873015871,
+            "avgValidatorEffectiveness": 94.50739513256819,
+            "clientPercentages": [
+                { "client": "Nimbus", "percentage": 0.8870292887029289 },
+                { "client": "Lighthouse", "percentage": 0.06345885634588563 },
+                { "client": "Teku", "percentage": 0.04776847977684798 },
+                { "client": "Prysm", "percentage": 0.0017433751743375174 }
+            ],
+            "networkPenetration": 0.007721684033101756,
+            "relayerPercentages": [
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.10344827586206896
+                },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.367816091954023
+                },
+                { "relayer": "agnostic", "percentage": 0.2988505747126437 },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.19540229885057472
+                },
+                { "relayer": "flashbots", "percentage": 0.034482758620689655 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/SenseiNode",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "SenseiNode",
+            "aprPercentage": 3.51
+        },
+        {
+            "id": "Ebunker - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 6000,
+            "avgCorrectness": 0.9893428388765448,
+            "avgInclusionDelay": 1.036205532659118,
+            "avgUptime": 0.9991311111111111,
+            "avgValidatorEffectiveness": 96.33037638019802,
+            "clientPercentages": [
+                { "client": "Prysm", "percentage": 0.9865497076023392 },
+                { "client": "Lighthouse", "percentage": 0.008187134502923977 },
+                { "client": "Teku", "percentage": 0.0017543859649122807 },
+                { "client": "Nimbus", "percentage": 0.0035087719298245615 }
+            ],
+            "networkPenetration": 0.00661858631408722,
+            "relayerPercentages": [
+                { "relayer": "flashbots", "percentage": 0.04225352112676056 },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.323943661971831
+                },
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.15492957746478872
+                },
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.15492957746478872
+                },
+                { "relayer": "aestus", "percentage": 0.09859154929577464 },
+                { "relayer": "agnostic", "percentage": 0.22535211267605634 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Ebunker",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Ebunker",
+            "aprPercentage": 3.3
+        },
+        {
+            "id": "RockawayX Infra - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 5500,
+            "avgCorrectness": 0.9909660565832257,
+            "avgInclusionDelay": 1.0319415005159676,
+            "avgUptime": 0.9999846464646465,
+            "avgValidatorEffectiveness": 96.78941000915034,
+            "clientPercentages": [
+                { "client": "Prysm", "percentage": 0.9895591647331786 },
+                { "client": "Nimbus", "percentage": 0.002900232018561485 },
+                { "client": "Lighthouse", "percentage": 0.0063805104408352666 },
+                { "client": "Teku", "percentage": 0.001160092807424594 }
+            ],
+            "networkPenetration": 0.006067037454579952,
+            "relayerPercentages": [
+                { "relayer": "ultra_sound_money", "percentage": 0.52 },
+                { "relayer": "flashbots", "percentage": 0.1 },
+                { "relayer": "no_mev_boost", "percentage": 0.06 },
+                { "relayer": "bloxroute_maxprofit", "percentage": 0.08 },
+                { "relayer": "agnostic", "percentage": 0.24 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/RockawayX Infra",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "RockawayX Infra",
+            "aprPercentage": 4.67
+        },
+        {
+            "id": "A41 - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 4998,
+            "avgCorrectness": 0.9863843990780199,
+            "avgInclusionDelay": 1.0361294033018214,
+            "avgUptime": 0.9997270241926083,
+            "avgValidatorEffectiveness": 96.11840731490875,
+            "clientPercentages": [
+                { "client": "Lighthouse", "percentage": 0.5252192982456141 },
+                { "client": "Teku", "percentage": 0.4682017543859649 },
+                { "client": "Nimbus", "percentage": 0.006578947368421052 }
+            ],
+            "networkPenetration": 0.005459230611402942,
+            "relayerPercentages": [
+                {
+                    "relayer": "bloxroute_maxprofit",
+                    "percentage": 0.20454545454545456
+                },
+                { "relayer": "agnostic", "percentage": 0.2727272727272727 },
+                { "relayer": "flashbots", "percentage": 0.045454545454545456 },
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.19318181818181818
+                },
+                {
+                    "relayer": "ultra_sound_money",
+                    "percentage": 0.23863636363636365
+                },
+                { "relayer": "aestus", "percentage": 0.045454545454545456 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/A41",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "A41",
+            "aprPercentage": 3.55
+        },
+        {
+            "id": "Numic - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 4997,
+            "avgCorrectness": 0.9867125663744309,
+            "avgInclusionDelay": 1.0409897774264496,
+            "avgUptime": 0.999786671595739,
+            "avgValidatorEffectiveness": 95.97154144837327,
+            "clientPercentages": [
+                { "client": "Nimbus", "percentage": 0.06866952789699571 },
+                { "client": "Teku", "percentage": 0.001072961373390558 },
+                { "client": "Lighthouse", "percentage": 0.9302575107296137 }
+            ],
+            "networkPenetration": 0.005459230611402942,
+            "relayerPercentages": [
+                { "relayer": "aestus", "percentage": 0.046875 },
+                { "relayer": "bloxroute_regulated", "percentage": 0.25 },
+                { "relayer": "flashbots", "percentage": 0.0625 },
+                { "relayer": "ultra_sound_money", "percentage": 0.265625 },
+                { "relayer": "agnostic", "percentage": 0.15625 },
+                { "relayer": "bloxroute_maxprofit", "percentage": 0.203125 },
+                { "relayer": "no_mev_boost", "percentage": 0.015625 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Numic",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Numic",
+            "aprPercentage": 3.89
+        },
+        {
+            "id": "ParaFi - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 4900,
+            "avgCorrectness": 0.9899168355419588,
+            "avgInclusionDelay": 1.0336403215155447,
+            "avgUptime": 0.9990675736961452,
+            "avgValidatorEffectiveness": 96.52823148377622,
+            "clientPercentages": [{ "client": "Teku", "percentage": 1 }],
+            "networkPenetration": 0.005405178823171229,
+            "relayerPercentages": [
+                { "relayer": "flashbots", "percentage": 0.21212121212121213 },
+                {
+                    "relayer": "bloxroute_regulated",
+                    "percentage": 0.7878787878787878
+                }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/ParaFi",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "ParaFi",
+            "aprPercentage": 3.44
+        },
+        {
+            "id": "Launchnodes - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 2562,
+            "avgCorrectness": 0.9680647503874441,
+            "avgInclusionDelay": 1.0924410562882092,
+            "avgUptime": 0.9857819411917773,
+            "avgValidatorEffectiveness": 90.72268067244678,
+            "clientPercentages": [{ "client": "Teku", "percentage": 1 }],
+            "networkPenetration": 0.0028261363561152427,
+            "relayerPercentages": [
+                {
+                    "relayer": "no_mev_boost",
+                    "percentage": 0.06896551724137931
+                },
+                { "relayer": "flashbots", "percentage": 0.9310344827586207 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Launchnodes",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Launchnodes",
+            "aprPercentage": 3.94
+        },
+        {
+            "id": "Gateway.fm - Lido",
+            "idType": "poolShare",
+            "timeWindow": "1d",
+            "validatorCount": 500,
+            "avgCorrectness": 0.9695316134110996,
+            "avgInclusionDelay": 1.0817619064658104,
+            "avgUptime": 0.9936711111111113,
+            "avgValidatorEffectiveness": 91.90182635542178,
+            "clientPercentages": [
+                { "client": "Prysm", "percentage": 0.7430555555555556 },
+                { "client": "Lighthouse", "percentage": 0.2569444444444444 }
+            ],
+            "networkPenetration": 0.0005515488595072683,
+            "relayerPercentages": [
+                { "relayer": "bloxroute_regulated", "percentage": 0.4 },
+                { "relayer": "agnostic", "percentage": 0.4 },
+                { "relayer": "ultra_sound_money", "percentage": 0.2 }
+            ],
+            "nodeOperatorCount": null,
+            "operatorTags": [
+                {
+                    "name": "operator",
+                    "path": "/o/Gateway.fm",
+                    "idType": "nodeOperator"
+                },
+                { "name": "Lido", "path": "/o/Lido", "idType": "pool" }
+            ],
+            "displayName": "Gateway.fm",
+            "aprPercentage": 4.03
+        }
+    ],
+    "next": null
+}
