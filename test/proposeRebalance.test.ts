@@ -1,14 +1,17 @@
-import MockAdapter from "axios-mock-adapter";
-import axios from "axios";
+import { MockRatedApi, requireEnv } from "./testUtils";
 
-const axiosMock = new MockAdapter(axios);
+const defaultValidatorCount = 1;
+const defaultOperatorCount = 1;
+const mockRatedApi = new MockRatedApi(
+    defaultValidatorCount,
+    defaultOperatorCount,
+);
 
 import { ethers } from "hardhat";
 import { BigNumber, utils } from "ethers";
 import { reset } from "@nomicfoundation/hardhat-network-helpers";
 import { AuctionRebalanceProposer } from "../src/auctionRebalanceProposer";
 import { DEFAULT_AUCTION_CONFIG } from "../src/auctionConfig";
-import { requireEnv } from "./testUtils";
 import { expect } from "chai";
 import { eligibleSetTokens } from "../src/addresses";
 
@@ -90,41 +93,9 @@ describe("Calculate dsETH auction rebalance params", function () {
     });
 
     describe("Rated API integration", function () {
-        function mockRatedEndpoint(
-            path: string | RegExp,
-            responseFunction: (params: any) => [number, any],
-        ) {
-            axiosMock.onGet(path).reply(responseFunction);
-        }
-
-        const defaultOperatorCount = 1;
-        const defaultValidatorCount = 1;
-        const defaultValidatorData = [
-            {
-                validatorCount: defaultValidatorCount,
-            },
-        ];
-        let poolIdToValidatorData: { [poolId: string]: any } = {};
-        const defaultPoolSummary = {
-            nodeOperatorCount: defaultOperatorCount,
-            validatorCount: defaultValidatorCount,
-        };
-
         before(function () {
-            mockRatedEndpoint(/.*\/summary/, (config: any) => {
-                return [200, defaultPoolSummary];
-            });
-            mockRatedEndpoint("/eth/operators", (config: any) => {
-                const data =
-                    poolIdToValidatorData[config.params.parentId] ??
-                    defaultValidatorData;
-                return [
-                    200,
-                    {
-                        data,
-                    },
-                ];
-            });
+            mockRatedApi.mockSummaryEndpoint();
+            mockRatedApi.mockOperatorsEndpoint();
         });
 
         context("#getNodeOperatorCounts", function () {
@@ -140,14 +111,14 @@ describe("Calculate dsETH auction rebalance params", function () {
 
         context("#getValidatorDistribution", function () {
             before(function () {
-                poolIdToValidatorData["Lido"] = [
+                mockRatedApi.setValidatorDataForPool("Lido", [
                     {
                         validatorCount: 100,
                     },
                     {
                         validatorCount: 200,
                     },
-                ];
+                ]);
             });
 
             it("Should return correct values", async function () {

@@ -21,5 +21,3 @@ export const stakingTokenRateProviders: Record<PoolIds, string> = {
 export const eligibleSetTokens: Record<SetTokens, string> = {
     dsEth: "0x341c05c0E9b33C0E38d64de76516b2Ce970bB3BE",
 };
-
-
