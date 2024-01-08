@@ -40,7 +40,7 @@ export const toWei = (
 
 export function getEnvVars() {
     return {
-        ratedAccessToken: requireEnvVar("RATED_ACCESS_TOKEN"),
+        ratedAccessToken: requireEnvVar("RATED_API_ACCESS_TOKEN"),
         ratedApiUrl: requireEnvVar(
             "RATED_API_URL",
             "https://api.rated.network/v0",
