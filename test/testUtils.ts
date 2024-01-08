@@ -49,7 +49,7 @@ export class MockRatedApi {
 
     public setValidatorDataForPool(
         poolId: string,
-        validatorData: any[] | undefined
+        validatorData: any[] | undefined,
     ) {
         this.poolIdToValidatorData[poolId] = validatorData;
     }

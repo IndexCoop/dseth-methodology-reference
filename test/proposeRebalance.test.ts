@@ -4,7 +4,7 @@ const defaultValidatorCount = 1;
 const defaultOperatorCount = 1;
 const mockRatedApi = new MockRatedApi(
     defaultValidatorCount,
-    defaultOperatorCount
+    defaultOperatorCount,
 );
 
 import { ethers } from "hardhat";
@@ -36,29 +36,29 @@ describe("Calculate dsETH auction rebalance params", function () {
             ratedAccessToken,
             ratedApiUrl,
             auctionConfig,
-            proposerSigner
+            proposerSigner,
         );
     });
 
     describe("On-chain price queries", function () {
         describe("#getEthExchangeRates", function () {
             const lidoEthExchangeRate = utils.parseEther(
-                "1.151473696985310120"
+                "1.151473696985310120",
             );
             const rocketPoolEthExchangeRate = utils.parseEther(
-                "1.094761417991677774"
+                "1.094761417991677774",
             );
             const stakeWiseEthExchangeRate = utils.parseEther(
-                "1.004232276619834910"
+                "1.004232276619834910",
             );
             const fraxEthExchangeRate = utils.parseEther(
-                "1.070920905211974170"
+                "1.070920905211974170",
             );
             const swellEthExchangeRate = utils.parseEther(
-                "1.047375758619640637"
+                "1.047375758619640637",
             );
             const staderEthExchangeRate = utils.parseEther(
-                "1.018054114977401548"
+                "1.018054114977401548",
             );
 
             it("should return one value for each pool", async function () {
@@ -75,16 +75,15 @@ describe("Calculate dsETH auction rebalance params", function () {
                 ];
 
                 expect(lstEthExchangeRates).to.deep.equal(
-                    expectedLstEthExchangeRates
+                    expectedLstEthExchangeRates,
                 );
             });
         });
 
         describe("#getSetTokenNavInWei", function () {
             it("should return correct value", async function () {
-                const nav = await dsEthProposer.getSetTokenNavInWei(
-                    dsEthAddress
-                );
+                const nav =
+                    await dsEthProposer.getSetTokenNavInWei(dsEthAddress);
 
                 const expectedNav = utils.parseEther("1.039410708579791328");
 
@@ -115,7 +114,7 @@ describe("Calculate dsETH auction rebalance params", function () {
                 const nodeOperatorCounts = [35, 2188, 5, 1, 8, 14];
                 const nodeOperatorFactors =
                     await dsEthProposer.getNodeOperatorWeightFactors(
-                        nodeOperatorCounts
+                        nodeOperatorCounts,
                     );
                 const expectedNodeOperatorFactors = [
                     0.09465985956812165, 0.7484374191119378,
@@ -124,7 +123,7 @@ describe("Calculate dsETH auction rebalance params", function () {
                 ];
 
                 expect(nodeOperatorFactors).to.deep.equal(
-                    expectedNodeOperatorFactors
+                    expectedNodeOperatorFactors,
                 );
             });
         });
@@ -155,7 +154,7 @@ describe("Calculate dsETH auction rebalance params", function () {
                 ];
 
                 expect(validatorDistribution).to.deep.equal(
-                    expectedValidatorDistribution
+                    expectedValidatorDistribution,
                 );
             });
         });
@@ -173,7 +172,7 @@ describe("Calculate dsETH auction rebalance params", function () {
             it("Should calculate the correct protocol HHI scores", async function () {
                 const protocolHHIScores =
                     await dsEthProposer.getProtocolHHIScores(
-                        validatorDistribution
+                        validatorDistribution,
                     );
 
                 const expectedProtocolHHIScores = [
@@ -182,18 +181,17 @@ describe("Calculate dsETH auction rebalance params", function () {
                 ];
 
                 expect(protocolHHIScores).to.deep.equal(
-                    expectedProtocolHHIScores
+                    expectedProtocolHHIScores,
                 );
             });
 
             it("Should calculate the correct HHI weight factors", async function () {
                 const protocolHHIScores =
                     await dsEthProposer.getProtocolHHIScores(
-                        validatorDistribution
+                        validatorDistribution,
                     );
-                const hhiFactors = await dsEthProposer.getHHIWeightFactors(
-                    protocolHHIScores
-                );
+                const hhiFactors =
+                    await dsEthProposer.getHHIWeightFactors(protocolHHIScores);
                 const expectedHHIFactors = [
                     0.2501938485396743, 0.09304729904368055,
                     0.37529077280951145, 0, 0, 0.28146807960713355,
@@ -206,10 +204,10 @@ describe("Calculate dsETH auction rebalance params", function () {
         context("#getTargetUnits", function () {
             const lidoTargetUnits = utils.parseEther("0.183524947187164250");
             const rocketPoolTargetUnits = utils.parseEther(
-                "0.137182714490521918"
+                "0.137182714490521918",
             );
             const stakeWiseTargetUnits = utils.parseEther(
-                "0.149549408574172648"
+                "0.149549408574172648",
             );
             const fraxTargetUnits = utils.parseEther("0.140236634011607713");
             const swellTargetUnits = utils.parseEther("0.143389172227472443");
