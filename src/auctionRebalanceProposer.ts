@@ -13,50 +13,12 @@ import {
     BOUNDED_STEPWISE_LINEAR_PRICE_ADAPTER_ABI,
     CHAINLINK_PRICE_FEED_ABI,
 } from "./abis";
-
-export enum PoolIds {
-    Lido = "Lido",
-    Rocketpool = "Rocketpool",
-    StakeWise = "StakeWise",
-    Frax = "Frax",
-    Swell = "Swell",
-    Stader = "Stader",
-}
-
-const stakingTokenAddresses: Record<PoolIds, string> = {
-    Lido: "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0", // wstETH
-    Rocketpool: "0xae78736Cd615f374D3085123A210448E74Fc6393", // rETH
-    StakeWise: "0xf1C9acDc66974dFB6dEcB12aA385b9cD01190E38", // osETH
-    Frax: "0xac3E018457B222d93114458476f3E3416Abbe38F", // sfrxETH
-    Swell: "0xf951E335afb289353dc249e82926178EaC7DEd78", // swETH
-    Stader: "0xA35b1B31Ce002FBF2058D22F30f95D405200A15b", // ETHx
-};
-
-const stakingTokenRateProviders: Record<PoolIds, string> = {
-    Lido: "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0", // wstETH
-    Rocketpool: "0xae78736Cd615f374D3085123A210448E74Fc6393", // rETH
-    StakeWise: "0x8023518b2192FB5384DAdc596765B3dD1cdFe471", // osETH
-    Frax: "0xac3E018457B222d93114458476f3E3416Abbe38F", // sfrxETH
-    Swell: "0xf951E335afb289353dc249e82926178EaC7DEd78", // swETH
-    Stader: "0xcf5EA1b38380f6aF39068375516Daf40Ed70D299", // ETHx
-};
-
-type AuctionExecutionParams = {
-    targetUnit: BigNumber; // Target quantity of the component in Set, in precise units (10 ** 18).
-    priceAdapterName: string; // Identifier for the price adapter to be used.
-    priceAdapterConfigData: string; // Encoded data for configuring the chosen price adapter.
-};
-
-type ProposeRebalanceParams = {
-    quoteAsset: string;
-    oldComponents: string[];
-    newComponents: string[];
-    newComponentsAuctionParams: AuctionExecutionParams[];
-    oldComponentsAuctionParams: AuctionExecutionParams[];
-    shouldLockSetToken: boolean;
-    rebalanceDuration: number;
-    positionMultiplier: number;
-};
+import {
+    PoolIds,
+    AuctionExecutionParams,
+    ProposeRebalanceParams,
+} from "./types";
+import { stakingTokens, stakingTokenRateProviders } from "./addresses";
 
 export class AuctionRebalanceProposer {
     private ratedApi: RatedApiService;
@@ -196,7 +158,7 @@ export class AuctionRebalanceProposer {
         );
         const components: string[] = await setTokenContract.getComponents();
         const currentUnits: BigNumber[] = await Promise.all(
-            Object.values(stakingTokenAddresses).map(async (addr) => {
+            Object.values(stakingTokens).map(async (addr) => {
                 if (components.includes(addr))
                     return await setTokenContract.getDefaultPositionRealUnit(
                         addr,
@@ -246,7 +208,7 @@ export class AuctionRebalanceProposer {
         let newComponentsAuctionParams: AuctionExecutionParams[] = [];
 
         let i = 0;
-        for (const addr of Object.values(stakingTokenAddresses)) {
+        for (const addr of Object.values(stakingTokens)) {
             if (oldComponents.includes(addr)) {
                 const currentUnits: BigNumber =
                     await setTokenContract.getDefaultPositionRealUnit(addr);

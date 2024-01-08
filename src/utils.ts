@@ -37,3 +37,29 @@ export const toWei = (
     value = integerPart + "." + fractionalPart;
     return ethers.utils.parseUnits(value, power);
 };
+
+export function getEnvVars() {
+    return {
+        ratedAccessToken: requireEnvVar("RATED_API_ACCESS_TOKEN"),
+        ratedApiUrl: requireEnvVar(
+            "RATED_API_URL",
+            "https://api.rated.network/v0",
+        ),
+    };
+}
+
+function requireEnvVar(
+    name: string,
+    defaultValue: string | undefined = undefined,
+): string {
+    const value = process.env[name];
+    if (value !== undefined) {
+        return value;
+    }
+    if (defaultValue !== undefined) {
+        return defaultValue;
+    }
+    throw new Error(
+        `Missing required environment variable without default ${name}`,
+    );
+}
