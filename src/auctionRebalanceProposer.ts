@@ -13,7 +13,6 @@ import {
     BOUNDED_STEPWISE_LINEAR_PRICE_ADAPTER_ABI,
     CHAINLINK_PRICE_FEED_ABI,
 } from "./abis";
-// import { OPTIMISTIC_AUCTION_REBALANCE_EXTENSION } from "../../../lib/abis";
 
 export enum PoolIds {
     Lido = "Lido",
@@ -284,16 +283,6 @@ export class AuctionRebalanceProposer {
             rebalanceDuration: this.auctionConfig.rebalanceDuration,
             positionMultiplier: await setTokenContract.positionMultiplier(),
         };
-    }
-
-    async submitProposeRebalanceTx(params: ProposeRebalanceParams) {
-        console.log("proposing rebalance with params", params);
-
-        // TODO: Submit proposeRebalance tx to optimistic rebalance extension
-        // const optimisticRebalanceExtension = new Contract(optimisticRebalanceExtensionAddress, OPTIMISTIC_AUCTION_REBALANCE_EXTENSION, proposerSigner);
-        // const tx = await optimisticRebalanceExtension.proposeRebalance(params);
-        // await tx.wait();
-        // console.log("tx hash", tx.hash);
     }
 
     // Calculate sqrt(NodeOperatorCount) for each liquid staking protocol
