@@ -109,6 +109,25 @@ describe("Calculate dsETH auction rebalance params", function () {
             });
         });
 
+        context("#getNodeOperatorWeightFactors", function () {
+            it("Should return correct values", async function () {
+                const nodeOperatorCounts = [35, 2188, 5, 1, 8, 14];
+                const nodeOperatorFactors =
+                    await dsEthProposer.getNodeOperatorWeightFactors(
+                        nodeOperatorCounts
+                    );
+                const expectedNodeOperatorFactors = [
+                    0.09465985956812165, 0.7484374191119378,
+                    0.03577806393679255, 0.016000436613200376,
+                    0.04525606892455801, 0.05986815184538941,
+                ];
+
+                expect(nodeOperatorFactors).to.deep.equal(
+                    expectedNodeOperatorFactors
+                );
+            });
+        });
+
         context("#getValidatorDistribution", function () {
             before(function () {
                 mockRatedApi.setValidatorDataForPool("Lido", [
@@ -135,8 +154,59 @@ describe("Calculate dsETH auction rebalance params", function () {
                 ];
 
                 expect(validatorDistribution).to.deep.equal(
-                    expectedValidatorDistribution,
+                    expectedValidatorDistribution
                 );
+            });
+        });
+
+        context("#getHHIWeightFactors", function () {
+            const validatorDistribution = [
+                [100, 200],
+                [10, 1],
+                [1, 1, 1],
+                [1],
+                [1],
+                [1, 1],
+            ];
+
+            it("Should calculate the correct protocol HHI scores", async function () {
+                const protocolHHIScores =
+                    await dsEthProposer.getProtocolHHIScores(
+                        validatorDistribution
+                    );
+
+                const expectedProtocolHHIScores = [
+                    4444.444444444445,
+                    1652.8925619834718,
+                    6666.666666666668,
+                    0,
+                    0,
+                    5000,
+                ];
+
+                expect(protocolHHIScores).to.deep.equal(
+                    expectedProtocolHHIScores
+                );
+            });
+
+            it("Should calculate the correct HHI weight factors", async function () {
+                const protocolHHIScores =
+                    await dsEthProposer.getProtocolHHIScores(
+                        validatorDistribution
+                    );
+                const hhiFactors = await dsEthProposer.getHHIWeightFactors(
+                    protocolHHIScores
+                );
+                const expectedHHIFactors = [
+                    0.2501938485396743,
+                    0.09304729904368055,
+                    0.37529077280951145,
+                    0,
+                    0,
+                    0.28146807960713355,
+                ];
+
+                expect(hhiFactors).to.deep.equal(expectedHHIFactors);
             });
         });
 
