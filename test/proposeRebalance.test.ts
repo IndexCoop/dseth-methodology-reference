@@ -4,7 +4,7 @@ import axios from "axios";
 const axiosMock = new MockAdapter(axios);
 
 import { ethers } from "hardhat";
-import { BigNumber } from "ethers";
+import { BigNumber, utils } from "ethers";
 import { reset } from "@nomicfoundation/hardhat-network-helpers";
 import { AuctionRebalanceProposer } from "../src/auctionRebalanceProposer";
 import { DEFAULT_AUCTION_CONFIG } from "../src/auctionConfig";
@@ -38,27 +38,50 @@ describe("Calculate dsETH auction rebalance params", function () {
 
     describe("On-chain price queries", function () {
         describe("#getEthExchangeRates", function () {
+            const lidoEthExchangeRate = utils.parseEther(
+                "1.151473696985310120",
+            );
+            const rocketPoolEthExchangeRate = utils.parseEther(
+                "1.094761417991677774",
+            );
+            const stakeWiseEthExchangeRate = utils.parseEther(
+                "1.004232276619834910",
+            );
+            const fraxEthExchangeRate = utils.parseEther(
+                "1.070920905211974170",
+            );
+            const swellEthExchangeRate = utils.parseEther(
+                "1.047375758619640637",
+            );
+            const staderEthExchangeRate = utils.parseEther(
+                "1.018054114977401548",
+            );
+
             it("should return one value for each pool", async function () {
-                const lstEthExchangeRates = await dsEthProposer.getEthExchangeRates();
+                const lstEthExchangeRates =
+                    await dsEthProposer.getEthExchangeRates();
 
                 const expectedLstEthExchangeRates = [
-                    BigNumber.from("1151473696985310120"),
-                    BigNumber.from("1094761417991677774"),
-                    BigNumber.from("1004232276619834910"),
-                    BigNumber.from("1070920905211974170"),
-                    BigNumber.from("1047375758619640637"),
-                    BigNumber.from("1018054114977401548")
+                    lidoEthExchangeRate,
+                    rocketPoolEthExchangeRate,
+                    stakeWiseEthExchangeRate,
+                    fraxEthExchangeRate,
+                    swellEthExchangeRate,
+                    staderEthExchangeRate,
                 ];
 
-                expect(lstEthExchangeRates).to.deep.equal(expectedLstEthExchangeRates);
+                expect(lstEthExchangeRates).to.deep.equal(
+                    expectedLstEthExchangeRates,
+                );
             });
         });
 
         describe("#getSetTokenNavInWei", function () {
             it("should return correct value", async function () {
-                const nav = await dsEthProposer.getSetTokenNavInWei(dsEthAddress);
+                const nav =
+                    await dsEthProposer.getSetTokenNavInWei(dsEthAddress);
 
-                const expectedNav = BigNumber.from("1039410708579791328");
+                const expectedNav = utils.parseEther("1.039410708579791328");
 
                 expect(nav).to.deep.equal(expectedNav);
             });
@@ -105,7 +128,8 @@ describe("Calculate dsETH auction rebalance params", function () {
 
         context("#getNodeOperatorCounts", function () {
             it("Should return correct values", async function () {
-                const operatorCounts = await dsEthProposer.getNodeOperatorCounts();
+                const operatorCounts =
+                    await dsEthProposer.getNodeOperatorCounts();
 
                 const expectedOperatorCounts = [1, 1, 1, 1, 1, 2];
 
@@ -126,7 +150,8 @@ describe("Calculate dsETH auction rebalance params", function () {
             });
 
             it("Should return correct values", async function () {
-                const validatorDistribution = await dsEthProposer.getValidatorDistribution();
+                const validatorDistribution =
+                    await dsEthProposer.getValidatorDistribution();
 
                 const expectedValidatorDistribution = [
                     [100, 200],
@@ -137,21 +162,34 @@ describe("Calculate dsETH auction rebalance params", function () {
                     [1, 1],
                 ];
 
-                expect(validatorDistribution).to.deep.equal(expectedValidatorDistribution);
+                expect(validatorDistribution).to.deep.equal(
+                    expectedValidatorDistribution,
+                );
             });
         });
 
         context("#getTargetUnits", function () {
+            const lidoTargetUnits = utils.parseEther("0.183524947187164250");
+            const rocketPoolTargetUnits = utils.parseEther(
+                "0.137182714490521918",
+            );
+            const stakeWiseTargetUnits = utils.parseEther(
+                "0.149549408574172648",
+            );
+            const fraxTargetUnits = utils.parseEther("0.140236634011607713");
+            const swellTargetUnits = utils.parseEther("0.143389172227472443");
+            const staderTargetUnits = utils.parseEther("0.223325247302630300");
+
             it("Should return the correct values", async function () {
                 const targetUnits = await dsEthProposer.getTargetUnits();
 
                 const expectedTargetUnits = [
-                    BigNumber.from("183524947187164250"),
-                    BigNumber.from("137182714490521918"),
-                    BigNumber.from("149549408574172648"),
-                    BigNumber.from("140236634011607713"),
-                    BigNumber.from("143389172227472443"),
-                    BigNumber.from("223325247302630300")
+                    lidoTargetUnits,
+                    rocketPoolTargetUnits,
+                    stakeWiseTargetUnits,
+                    fraxTargetUnits,
+                    swellTargetUnits,
+                    staderTargetUnits,
                 ];
 
                 expect(targetUnits).to.deep.equal(expectedTargetUnits);
