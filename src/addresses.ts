@@ -1,4 +1,4 @@
-import { PoolIds } from "./types";
+import { PoolIds, SetTokens } from "./types";
 
 export const stakingTokens: Record<PoolIds, string> = {
     Lido: "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0", // wstETH
@@ -17,3 +17,9 @@ export const stakingTokenRateProviders: Record<PoolIds, string> = {
     Swell: "0xf951E335afb289353dc249e82926178EaC7DEd78", // swETH
     Stader: "0xcf5EA1b38380f6aF39068375516Daf40Ed70D299", // ETHx
 };
+
+export const eligibleSetTokens: Record<SetTokens, string> = {
+    dsEth: "0x341c05c0E9b33C0E38d64de76516b2Ce970bB3BE",
+};
+
+

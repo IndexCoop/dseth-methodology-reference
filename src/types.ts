@@ -9,6 +9,10 @@ export enum PoolIds {
     Stader = "Stader",
 }
 
+export enum SetTokens {
+    dsEth = "dsEth",
+}
+
 export type AuctionExecutionParams = {
     targetUnit: BigNumber; // Target quantity of the component in Set, in precise units (10 ** 18).
     priceAdapterName: string; // Identifier for the price adapter to be used.

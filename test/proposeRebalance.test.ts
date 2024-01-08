@@ -10,9 +10,10 @@ import { AuctionRebalanceProposer } from "../src/auctionRebalanceProposer";
 import { DEFAULT_AUCTION_CONFIG } from "../src/auctionConfig";
 import { requireEnv } from "./testUtils";
 import { expect } from "chai";
+import { eligibleSetTokens } from "../src/addresses";
 
 describe("Calculate dsETH auction rebalance params", function () {
-    const dsEthAddress = "0x341c05c0E9b33C0E38d64de76516b2Ce970bB3BE";
+    const dsEthAddress = eligibleSetTokens.dsEth;
     const ratedAccessToken = process.env.RATED_API_ACCESS_TOKEN || "TESTOKEN";
     const auctionConfig = DEFAULT_AUCTION_CONFIG;
     const testBlock = 18958133;
