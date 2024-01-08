@@ -32,12 +32,12 @@ export class RatedApiService {
     async getNodeOperatorCountForPool(
         accessToken: string,
         poolId: string,
-        window: string = "1d",
+        window: string = "1d"
     ): Promise<number> {
         const poolSummary = await this.getPoolSummary(
             accessToken,
             poolId,
-            window,
+            window
         );
         if (poolId === "Frax") {
             // Special case for Frax because API returns null value for node operator count
@@ -49,12 +49,12 @@ export class RatedApiService {
     async getTotalValidatorCountForPool(
         accessToken: string,
         poolId: string,
-        window: string = "1d",
+        window: string = "1d"
     ): Promise<number> {
         const poolSummary = await this.getPoolSummary(
             accessToken,
             poolId,
-            window,
+            window
         );
         return poolSummary.data.validatorCount;
     }
@@ -62,7 +62,7 @@ export class RatedApiService {
     async getPoolSummary(
         accessToken: string,
         poolId: string,
-        window: string = "1d",
+        window: string = "1d"
     ): Promise<AxiosResponse> {
         try {
             return await axios.get(`/eth/operators/${poolId}/summary`, {
@@ -84,7 +84,7 @@ export class RatedApiService {
         poolId: string,
         size: number,
         from: number,
-        window: string = "1d",
+        window: string = "1d"
     ): Promise<AxiosResponse> {
         try {
             let res = await axios.get("/eth/operators", {
@@ -103,7 +103,7 @@ export class RatedApiService {
         } catch (err) {
             console.error("error getting node operators", err);
             throw new Error(
-                `Rated API: error getting node operators for ${poolId}`,
+                `Rated API: error getting node operators for ${poolId}`
             );
         }
     }

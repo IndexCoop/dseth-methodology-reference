@@ -34,7 +34,7 @@ async function main() {
         ratedAccessToken,
         ratedApiUrl,
         DEFAULT_AUCTION_CONFIG,
-        proposerSigner,
+        proposerSigner
     );
 
     let targetUnits = await dsEthProposer.getTargetUnits();
