@@ -17,9 +17,8 @@ describe("Calculate dsETH auction rebalance params", function () {
     const auctionConfig = DEFAULT_AUCTION_CONFIG;
     const testBlock = 18942693;
     const forkUrl = requireEnv("MAINNET_RPC_URL");
-    // const ratedApiUrl = "https://api.rated.network/v0"; // Use sparingly! This is a paid API
     const ratedApiUrl =
-        "https://443a7557-0b64-48d3-9730-aa24aa3334e3.mock.pstmn.io/v0";
+        process.env.RATED_API_URL || "https://api.rated.network/v0";
     let dsEthProposer: AuctionRebalanceProposer;
     const numberOfPools = 6;
 
