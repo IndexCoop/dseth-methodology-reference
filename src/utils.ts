@@ -1,6 +1,6 @@
-import { BigNum, ethers } from "ethers";
+import { BigNumber, ethers } from "ethers";
 
-export function parseEther(ether: string): BigNum {
+export function parseEther(ether: string): BigNumber {
     return ethers.utils.parseEther(ether);
 }
 
@@ -14,7 +14,7 @@ export function parseEther(ether: string): BigNum {
 export const toWei = (
     valueToConvert: number | string,
     power: number = 18,
-): BigNum => {
+): BigNumber => {
     // parseUnits only accepts strings
     let value =
         typeof valueToConvert === "number"

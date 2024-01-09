@@ -228,5 +228,97 @@ describe("Calculate dsETH auction rebalance params", function () {
                 expect(targetUnits).to.deep.equal(expectedTargetUnits);
             });
         });
+
+        context("#getProposeRebalanceParams", function () {
+            const expectedQuoteAsset =
+                "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
+
+            const expectedOldComponents = [
+                "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+                "0xae78736Cd615f374D3085123A210448E74Fc6393",
+                "0xac3E018457B222d93114458476f3E3416Abbe38F",
+                "0xf1C9acDc66974dFB6dEcB12aA385b9cD01190E38",
+            ];
+
+            const expectedNewComponents = [
+                "0xf951E335afb289353dc249e82926178EaC7DEd78",
+                "0xA35b1B31Ce002FBF2058D22F30f95D405200A15b",
+            ];
+
+            const expectedOldComponentsAuctionParams = [
+                {
+                    targetUnit: utils.parseEther("0.183524947187164250"),
+                    priceAdapterName: "BoundedStepwiseLinearPriceAdapter",
+                    priceAdapterConfigData:
+                        "0x0000000000000000000000000000000000e2337a27533a7627f4566878f0000000000000000000000000000000000000000038c5a42e02d16ef8f60ba5c40000000000000000000000000000000000000000000000000000000000000000025800000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000e2337a27533a7627f4566878f000000000000000000000000000000000000000d954988022c9bcd10de49692500000",
+                },
+                {
+                    targetUnit: utils.parseEther("0.137182714490521918"),
+                    priceAdapterName: "BoundedStepwiseLinearPriceAdapter",
+                    priceAdapterConfigData:
+                        "0x0000000000000000000000000000000000d70f6c5da473e6993f13aba414000000000000000000000000000000000000000035f9d4ec55726c12622711fb0000000000000000000000000000000000000000000000000000000000000000025800000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000d70f6c5da473e6993f13aba41400000000000000000000000000000000000000cea06318b71a05b65fbd90d4dc0000",
+                },
+                {
+                    targetUnit: utils.parseEther("0.149549408574172648"),
+                    priceAdapterName: "BoundedStepwiseLinearPriceAdapter",
+                    priceAdapterConfigData:
+                        "0x0000000000000000000000000000000000c546b930ea509d96eda0c452f400000000000000000000000000000000000000003183317db84c73d994fd2e430000000000000000000000000000000000000000000000000000000000000000025800000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000c546b930ea509d96eda0c452f400000000000000000000000000000000000000bd8a39754584ab7cee5935187c0000",
+                },
+                {
+                    targetUnit: utils.parseEther("0.140236634011607713"),
+                    priceAdapterName: "BoundedStepwiseLinearPriceAdapter",
+                    priceAdapterConfigData:
+                        "0x0000000000000000000000000000000000d2607c993077218982d9cbdf5c000000000000000000000000000000000000000034ccec125e7c44a707be31290000000000000000000000000000000000000000000000000000000000000000025800000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000d2607c993077218982d9cbdf5c00000000000000000000000000000000000000ca2077b651b3b6cf69a41430f40000",
+                },
+            ];
+
+            const expectedNewComponentsAuctionParams = [
+                {
+                    targetUnit: utils.parseEther("0.143389172227472443"),
+                    priceAdapterName: "BoundedStepwiseLinearPriceAdapter",
+                    priceAdapterConfigData:
+                        "0x0000000000000000000000000000000000c5aed1cff46c3417ec9f3f46da000000000000000000000000000000000000000019d1decccb49b11f56490b664000000000000000000000000000000000000000000000000000000000000000025800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000cdc0676ff3f33b71b79612d6ce00000000000000000000000000000000000000c5aed1cff46c3417ec9f3f46da0000",
+                },
+                {
+                    targetUnit: utils.parseEther("0.223325247302630300"),
+                    priceAdapterName: "BoundedStepwiseLinearPriceAdapter",
+                    priceAdapterConfigData:
+                        "0x0000000000000000000000000000000000c0261076565acf87e2aa029c1800000000000000000000000000000000000000001918d3213835a82ad36ad7970000000000000000000000000000000000000000000000000000000000000000025800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c7fdd270b7eb941544bb65fb4800000000000000000000000000000000000000c0261076565acf87e2aa029c180000",
+                },
+            ];
+
+            it("Should return the correct values", async function () {
+                const targetUnits = await dsEthProposer.getTargetUnits();
+
+                const proposeRebalanceParams =
+                    await dsEthProposer.getProposeRebalanceParams(targetUnits);
+
+                expect(proposeRebalanceParams.quoteAsset).to.equal(
+                    expectedQuoteAsset,
+                );
+                expect(proposeRebalanceParams.oldComponents).to.deep.equal(
+                    expectedOldComponents,
+                );
+                expect(proposeRebalanceParams.newComponents).to.deep.equal(
+                    expectedNewComponents,
+                );
+
+                expect(
+                    proposeRebalanceParams.oldComponentsAuctionParams,
+                ).to.deep.equal(expectedOldComponentsAuctionParams);
+
+                expect(
+                    proposeRebalanceParams.newComponentsAuctionParams,
+                ).to.deep.equal(expectedNewComponentsAuctionParams);
+
+                expect(proposeRebalanceParams.shouldLockSetToken).to.be.false;
+                expect(proposeRebalanceParams.rebalanceDuration).to.equal(
+                    259200,
+                );
+                expect(proposeRebalanceParams.positionMultiplier).to.deep.equal(
+                    utils.parseEther("0.997957208803707410"),
+                );
+            });
+        });
     });
 });

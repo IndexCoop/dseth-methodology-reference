@@ -7,7 +7,8 @@
   "author": "IndexCoop",
   "license": "MIT",
   "scripts": {
-    "calculate-target-units": "hardhat run --network mainnet scripts/calculateTargetUnits.ts"
+    "calculate-target-units": "hardhat run --network mainnet scripts/calculateTargetUnits.ts",
+    "calculate-rebalance-params": "hardhat run --network mainnet scripts/calculateRebalanceParams.ts"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-network-helpers": "^1.0.9",
