@@ -1,6 +1,6 @@
-import { BigNum, ethers } from "ethers";
+import { BigNumber, ethers } from "ethers";
 
-export function parseEther(ether: string): BigNum {
+export function parseEther(ether: string): BigNumber {
     return ethers.utils.parseEther(ether);
 }
 
@@ -13,8 +13,8 @@ export function parseEther(ether: string): BigNum {
  */
 export const toWei = (
     valueToConvert: number | string,
-    power: number = 18,
-): BigNum => {
+    power: number = 18
+): BigNumber => {
     // parseUnits only accepts strings
     let value =
         typeof valueToConvert === "number"
@@ -43,14 +43,14 @@ export function getEnvVars() {
         ratedAccessToken: requireEnvVar("RATED_API_ACCESS_TOKEN"),
         ratedApiUrl: requireEnvVar(
             "RATED_API_URL",
-            "https://api.rated.network/v0",
+            "https://api.rated.network/v0"
         ),
     };
 }
 
 function requireEnvVar(
     name: string,
-    defaultValue: string | undefined = undefined,
+    defaultValue: string | undefined = undefined
 ): string {
     const value = process.env[name];
     if (value !== undefined) {
@@ -60,6 +60,6 @@ function requireEnvVar(
         return defaultValue;
     }
     throw new Error(
-        `Missing required environment variable without default ${name}`,
+        `Missing required environment variable without default ${name}`
     );
 }
