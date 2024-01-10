@@ -1,14 +1,11 @@
-import { ethers } from "hardhat";
-import { MockRatedApi } from "../test/testUtils";
-
 import { AuctionRebalanceProposer } from "../src/auctionRebalanceProposer";
 import { eligibleSetTokens } from "../src/addresses";
 import { DEFAULT_AUCTION_CONFIG } from "../src/auctionConfig";
 import { getEnvVars } from "../src/utils";
 import {
     displayTargetUnits,
-    getDefaultSigner,
     setupMockRatedApi,
+    getDefaultSigner,
 } from "./utils";
 
 async function main() {
@@ -20,7 +17,6 @@ async function main() {
     const proposerSigner = await getDefaultSigner();
     const { ratedAccessToken, ratedApiUrl } = getEnvVars();
 
-    console.log("Calculating target units for dsEth");
     console.log("Rated API URL: ", mockedRatedApi ? "LOCAL MOCK" : ratedApiUrl);
 
     const dsEthProposer = new AuctionRebalanceProposer(
@@ -31,8 +27,14 @@ async function main() {
         proposerSigner,
     );
 
+    console.log("Calculating target units for dsEth");
     let targetUnits = await dsEthProposer.getTargetUnits();
     displayTargetUnits(targetUnits);
+
+    console.log("Getting rebalance proposal params for dsEth");
+    const params = await dsEthProposer.getProposeRebalanceParams(targetUnits);
+
+    console.log("Propose rebalance params: ", params);
 }
 
 main().catch((error) => {
