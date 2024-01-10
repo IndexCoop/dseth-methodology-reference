@@ -92,7 +92,7 @@ Proposals are submitted through the `proposeRebalance()` function of the Optimis
 ### Fixed Rebalance Parameters
 Every proposal must adhere to these fixed parameters:
 * `_quoteAsset`: Must be WETH - `0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2`
-* `_rebalanceDuration`: Must be 3 days (`259200` seconds)
+* `_rebalanceDuration`: Must be 1 day (`86400` seconds)
 
 ### Dynamic Rebalance Parameters
 
@@ -112,7 +112,7 @@ These parameters must comply with target unit and price curve guidelines:
 
 These parameters must be closely aligned with valid target units and reference prices:
 * `_initialPrice`: Align with max price if `_isDecreasing` is true, or with min price otherwise.
-* `_slope`: Set to 0.001 WETH (`1000000000000000`) if _isDecreasing, or 0.0005 WETH (`500000000000000`) otherwise.
+* `_slope`: Set to at most 0.001 WETH (`1000000000000000`).
 * `_bucketSize`: Should be 10 minutes (`600` seconds).
 * `_isDecreasing`: True if the component’s target unit is below  the value of `getDefaultPositionRealUnit()` result at proposal time, false otherwise.
 * `_maxPrice`: Must be within 2% of the valid reference price.
