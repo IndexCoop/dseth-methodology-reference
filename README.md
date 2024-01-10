@@ -1,7 +1,15 @@
 [![CI](https://github.com/IndexCoop/optimistic-auction-query/actions/workflows/ci.yml/badge.svg)](https://github.com/IndexCoop/optimistic-auction-query/actions/workflows/ci.yml/badge.svg)
 
-# Reference query for calculating new dsETH weights and target units
-Instructions and executable code for generating valid dsETH rebalance parameters.
+# dsETH Methodology Reference
+
+This repository contains a reference script and query for the [dsETH Rebalance Proposal Guidelines](https://ipfs.io/ipfs/QmdHftq7GK552HHVoLdU41DTzxSyFhhPnPoEEuySKM7nWK?filename=guidelines.md). 
+
+| Contracts & IPFS Deployments | Address |
+| - | - |
+| `dsETH` | [0x341c05c0E9b33C0E38d64de76516b2Ce970bB3BE](https://etherscan.io/token/0x341c05c0e9b33c0e38d64de76516b2ce970bb3be#code) | 
+| `OptimisticAuctionExtensionV1` | [0x4677f9eac72E10469949D73d8eF71883Ce510732](https://etherscan.io/address/0x4677f9eac72E10469949D73d8eF71883Ce510732#code) |
+| `OptimisticOracleV3` | [0xfb55F43fB9F48F63f9269DB7Dde3BbBe1ebDC0dE](https://etherscan.io/address/0xfb55F43fB9F48F63f9269DB7Dde3BbBe1ebDC0dE#code) |
+| dsETH Rebalance Proposal Guidelines | [QmdHftq7GK552HHVoLdU41DTzxSyFhhPnPoEEuySKM7nWK](https://ipfs.io/ipfs/QmdHftq7GK552HHVoLdU41DTzxSyFhhPnPoEEuySKM7nWK?filename=guidelines.md) |
 
 # Background
 
