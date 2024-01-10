@@ -2,7 +2,7 @@
 
 # dsETH Methodology Reference
 
-This repository contains a reference script and query for the [dsETH Rebalance Proposal Guidelines](https://ipfs.io/ipfs/QmdHftq7GK552HHVoLdU41DTzxSyFhhPnPoEEuySKM7nWK?filename=guidelines.md). 
+This repository contains a reference script and query for the [dsETH Rebalance Proposal Guidelines](https://ipfs.io/ipfs/QmdHftq7GK552HHVoLdU41DTzxSyFhhPnPoEEuySKM7nWK?filename=guidelines.md). Access the rendered guidelines document [here](https://github.com/IndexCoop/dseth-methodology-reference/blob/main/guidelines.md). 
 
 | Contracts & IPFS Deployments | Address |
 | - | - |
