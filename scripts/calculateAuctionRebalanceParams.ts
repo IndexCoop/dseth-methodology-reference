@@ -2,7 +2,11 @@ import { AuctionRebalanceProposer } from "../src/auctionRebalanceProposer";
 import { eligibleSetTokens } from "../src/addresses";
 import { DEFAULT_AUCTION_CONFIG } from "../src/auctionConfig";
 import { getEnvVars } from "../src/utils";
-import { displayTargetUnits, setupMockRatedApi, getDefaultSigner } from "./utils";
+import {
+    displayTargetUnits,
+    setupMockRatedApi,
+    getDefaultSigner,
+} from "./utils";
 
 async function main() {
     let mockedRatedApi = process.env.MOCK_RATED_API == "true";
