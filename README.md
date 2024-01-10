@@ -26,7 +26,7 @@ At a high level the dsETH methodology states that:
 
 ## UMA Optimistic Oracle and Rebalance Proposals
 
-The [UMA Optimistic Oracle](https://docs.uma.xyz/) brings the dsETH methodology on chain. It defines [guidelines] (https://ipfs.io/ipfs/QmdHftq7GK552HHVoLdU41DTzxSyFhhPnPoEEuySKM7nWK?filename=guidelines.md) to assert wether a re-weighting proposal is valid. In addition to instructions for validating the dsETH methodology, the guidelines document also specify auction parameter values related to rebalance execution.
+The [UMA Optimistic Oracle](https://docs.uma.xyz/) brings the dsETH methodology on chain. It defines [guidelines](https://ipfs.io/ipfs/QmdHftq7GK552HHVoLdU41DTzxSyFhhPnPoEEuySKM7nWK?filename=guidelines.md) to assert wether a re-weighting proposal is valid. In addition to instructions for validating the dsETH methodology, the guidelines document also specify auction parameter values related to rebalance execution.
 
 Anyone can [dispute a re-weighting proposal](https://docs.uma.xyz/using-uma/disputing-oracle-data) does not follow the guidelines, and prevent a rebalance from happening while the dispute goes through arbitration. Successful disputes are rewarded!
 
