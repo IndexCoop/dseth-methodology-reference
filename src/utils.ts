@@ -1,6 +1,6 @@
 import { BigNumber, ethers } from "ethers";
 
-export function parseEther(ether: string): BigNumber {
+export function parseEther(ether: string): BigNum {
     return ethers.utils.parseEther(ether);
 }
 
