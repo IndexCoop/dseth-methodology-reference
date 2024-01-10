@@ -2,7 +2,7 @@ import { AuctionRebalanceProposer } from "../src/auctionRebalanceProposer";
 import { eligibleSetTokens } from "../src/addresses";
 import { DEFAULT_AUCTION_CONFIG } from "../src/auctionConfig";
 import { getEnvVars } from "../src/utils";
-import { setupMockRatedApi, getDefaultSigner } from "./utils";
+import { displayTargetUnits, setupMockRatedApi, getDefaultSigner } from "./utils";
 
 async function main() {
     let mockedRatedApi = process.env.MOCK_RATED_API == "true";
@@ -25,6 +25,7 @@ async function main() {
 
     console.log("Calculating target units for dsEth");
     let targetUnits = await dsEthProposer.getTargetUnits();
+    displayTargetUnits(targetUnits);
 
     console.log("Getting rebalance proposal params for dsEth");
     const params = await dsEthProposer.getProposeRebalanceParams(targetUnits);
