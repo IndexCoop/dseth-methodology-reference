@@ -24,7 +24,7 @@ async function main() {
         ratedAccessToken,
         ratedApiUrl,
         DEFAULT_AUCTION_CONFIG,
-        proposerSigner
+        proposerSigner,
     );
 
     console.log("Calculating target units for dsEth");
