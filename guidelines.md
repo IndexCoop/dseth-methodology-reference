@@ -75,7 +75,7 @@ Each component's proposed Target Unit should individually have a deviation of no
 ### Contract Addresses
 
 * dsETH: `0x341c05c0E9b33C0E38d64de76516b2Ce970bB3BE`
-* OptimisticAuctionExtensionV1: `0x4677f9eac72E10469949D73d8eF71883Ce510732`
+* OptimisticAuctionExtensionV1: `0xf0D343Fd94ac44EF6b8baaE8dB3917d985c2cEc7`
 * BoundedStepwiseLinearPriceAdapter: `0x237F7BBe0b358415bE84AB6d279D4338C0d026bB`
 
 ### Proposal Submission Endpoint

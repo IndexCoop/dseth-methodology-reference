@@ -2,14 +2,14 @@
 
 # dsETH Methodology Reference
 
-This repository contains a reference script and query for the [dsETH Rebalance Proposal Guidelines](https://ipfs.io/ipfs/QmdHftq7GK552HHVoLdU41DTzxSyFhhPnPoEEuySKM7nWK?filename=guidelines.md). Access the rendered guidelines document [here](https://github.com/IndexCoop/dseth-methodology-reference/blob/main/guidelines.md). 
+This repository contains a reference script and query for the [dsETH Rebalance Proposal Guidelines](https://ipfs.io/ipfs/QmaQmtteNydU2c6H9MJoKwVaspAsgMYJ44YE9mkNNuJmGL?filename=guidelines.md). Access the rendered guidelines document [here](https://github.com/IndexCoop/dseth-methodology-reference/blob/main/guidelines.md). 
 
 | Contracts & IPFS Deployments | Address |
 | - | - |
 | `dsETH` | [0x341c05c0E9b33C0E38d64de76516b2Ce970bB3BE](https://etherscan.io/token/0x341c05c0e9b33c0e38d64de76516b2ce970bb3be#code) | 
-| `OptimisticAuctionExtensionV1` | [0x4677f9eac72E10469949D73d8eF71883Ce510732](https://etherscan.io/address/0x4677f9eac72E10469949D73d8eF71883Ce510732#code) |
+| `OptimisticAuctionExtensionV1` | [0xf0D343Fd94ac44EF6b8baaE8dB3917d985c2cEc7](https://etherscan.io/address/0xf0D343Fd94ac44EF6b8baaE8dB3917d985c2cEc7#code) |
 | `OptimisticOracleV3` | [0xfb55F43fB9F48F63f9269DB7Dde3BbBe1ebDC0dE](https://etherscan.io/address/0xfb55F43fB9F48F63f9269DB7Dde3BbBe1ebDC0dE#code) |
-| dsETH Rebalance Proposal Guidelines | [QmdHftq7GK552HHVoLdU41DTzxSyFhhPnPoEEuySKM7nWK](https://ipfs.io/ipfs/QmdHftq7GK552HHVoLdU41DTzxSyFhhPnPoEEuySKM7nWK?filename=guidelines.md) |
+| dsETH Rebalance Proposal Guidelines | [QmaQmtteNydU2c6H9MJoKwVaspAsgMYJ44YE9mkNNuJmGL](https://ipfs.io/ipfs/QmaQmtteNydU2c6H9MJoKwVaspAsgMYJ44YE9mkNNuJmGL?filename=guidelines.md) |
 
 # Background
 
