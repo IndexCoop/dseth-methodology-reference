@@ -48,11 +48,11 @@ describe("Calculate dsETH auction rebalance params", function () {
             const rocketPoolEthExchangeRate = utils.parseEther(
                 "1.094761417991677774",
             );
-            const stakeWiseEthExchangeRate = utils.parseEther(
-                "1.004232276619834910",
-            );
             const fraxEthExchangeRate = utils.parseEther(
                 "1.070920905211974170",
+            );
+            const stakeWiseEthExchangeRate = utils.parseEther(
+                "1.004232276619834910",
             );
             const swellEthExchangeRate = utils.parseEther(
                 "1.047375758619640637",
@@ -68,8 +68,8 @@ describe("Calculate dsETH auction rebalance params", function () {
                 const expectedLstEthExchangeRates = [
                     lidoEthExchangeRate,
                     rocketPoolEthExchangeRate,
-                    stakeWiseEthExchangeRate,
                     fraxEthExchangeRate,
+                    stakeWiseEthExchangeRate,
                     swellEthExchangeRate,
                     staderEthExchangeRate,
                 ];
@@ -206,10 +206,10 @@ describe("Calculate dsETH auction rebalance params", function () {
             const rocketPoolTargetUnits = utils.parseEther(
                 "0.137182714490521918",
             );
+            const fraxTargetUnits = utils.parseEther("0.140236634011607713");
             const stakeWiseTargetUnits = utils.parseEther(
                 "0.149549408574172648",
             );
-            const fraxTargetUnits = utils.parseEther("0.140236634011607713");
             const swellTargetUnits = utils.parseEther("0.143389172227472443");
             const staderTargetUnits = utils.parseEther("0.223325247302630300");
 
@@ -219,8 +219,8 @@ describe("Calculate dsETH auction rebalance params", function () {
                 const expectedTargetUnits = [
                     lidoTargetUnits,
                     rocketPoolTargetUnits,
-                    stakeWiseTargetUnits,
                     fraxTargetUnits,
+                    stakeWiseTargetUnits,
                     swellTargetUnits,
                     staderTargetUnits,
                 ];
@@ -259,16 +259,16 @@ describe("Calculate dsETH auction rebalance params", function () {
                         "0x0000000000000000000000000000000000000000000000000f54e6a808f3674e0000000000000000000000000000000000000000000000000000e35fa931a000000000000000000000000000000000000000000000000000000000000000025800000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000f54e6a808f3674e0000000000000000000000000000000000000000000000000f0dd8c32971674e",
                 },
                 {
-                    targetUnit: BigNumber.from("149549408574172648"),
-                    priceAdapterName: "BoundedStepwiseLinearPriceAdapter",
-                    priceAdapterConfigData:
-                        "0x0000000000000000000000000000000000000000000000000e1346e1c7a9361e0000000000000000000000000000000000000000000000000000e35fa931a000000000000000000000000000000000000000000000000000000000000000025800000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000e1346e1c7a9361e0000000000000000000000000000000000000000000000000dcc38fce827361e",
-                },
-                {
                     targetUnit: BigNumber.from("140236634011607713"),
                     priceAdapterName: "BoundedStepwiseLinearPriceAdapter",
                     priceAdapterConfigData:
                         "0x0000000000000000000000000000000000000000000000000f0033d61974121a0000000000000000000000000000000000000000000000000000e35fa931a000000000000000000000000000000000000000000000000000000000000000025800000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000f0033d61974121a0000000000000000000000000000000000000000000000000eb925f139f2121a",
+                },
+                {
+                    targetUnit: BigNumber.from("149549408574172648"),
+                    priceAdapterName: "BoundedStepwiseLinearPriceAdapter",
+                    priceAdapterConfigData:
+                        "0x0000000000000000000000000000000000000000000000000e1346e1c7a9361e0000000000000000000000000000000000000000000000000000e35fa931a000000000000000000000000000000000000000000000000000000000000000025800000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000e1346e1c7a9361e0000000000000000000000000000000000000000000000000dcc38fce827361e",
                 },
             ];
 
