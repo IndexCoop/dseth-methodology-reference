@@ -3,8 +3,8 @@ import { BigNumber } from "ethers";
 export enum PoolIds {
     Lido = "Lido",
     Rocketpool = "Rocketpool",
-    StakeWise = "StakeWise",
     Frax = "Frax",
+    StakeWise = "StakeWise",
     Swell = "Swell",
     Stader = "Stader",
 }

@@ -1,7 +1,7 @@
 import { BigNumber, Contract, Signer } from "ethers";
 import { RatedApiService } from "./ratedApiService";
 import { AuctionConfig } from "./auctionConfig";
-import { toWei } from "./utils";
+import { parseEther, toWei } from "./utils";
 import {
     SET_TOKEN_ABI,
     SWETH_ABI,
@@ -362,17 +362,13 @@ export class AuctionRebalanceProposer {
         isDecreasing: boolean,
     ): Promise<AuctionExecutionParams> {
         const initialPrice = isDecreasing
-            ? priceInWei.mul(toWei(config.initialPricePctSellComponents))
-            : priceInWei.mul(toWei(config.initialPricePctBuyComponents));
+            ? priceInWei.add(config.initialPriceAdjustSellComponents)
+            : priceInWei.sub(config.initialPriceAdjustSellComponents);
         const slope = isDecreasing
-            ? priceInWei.mul(toWei(config.slopeForSellComponents))
-            : priceInWei.mul(toWei(config.slopeForBuyComponents));
-        const maxPrice = priceInWei.mul(
-            toWei(config.maxPriceAsPercentOfMarketPrice),
-        );
-        const minPrice = priceInWei.mul(
-            toWei(config.minPriceAsPercentOfMarketPrice),
-        );
+            ? config.slopeForSellComponents
+            : config.slopeForBuyComponents;
+        const maxPrice = priceInWei.add(config.maxPriceAboveMarketPrice);
+        const minPrice = priceInWei.sub(config.minPriceBelowMarketPrice);
 
         const priceAdapterData = await priceAdapter.getEncodedData(
             initialPrice,
