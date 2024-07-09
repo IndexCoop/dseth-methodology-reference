@@ -273,7 +273,6 @@ export class AuctionRebalanceProposer {
     async getNodeOperatorCounts(): Promise<number[]> {
         let nodeOperatorCounts: number[] = [];
 
-        // Change this to array.map?
         for (const poolId of Object.values(PoolIds)) {
             if (poolId === PoolIds.Stader) {
                 const permissionedNodeOpCount =
@@ -358,6 +357,7 @@ export class AuctionRebalanceProposer {
                 );
             }
         }
+        console.log("validator distribution", JSON.stringify(validatorDistribution));
 
         return validatorDistribution;
     }

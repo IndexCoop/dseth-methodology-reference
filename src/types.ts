@@ -4,7 +4,7 @@ export enum PoolIds {
     Lido = "Lido",
     Rocketpool = "Rocketpool",
     Frax = "Frax",
-    StakeWise = "StakeWise",
+    StakeWise = "StakeWise v2",
     Stader = "Stader",
     Swell = "Swell",
 }
