@@ -70,8 +70,8 @@ describe("Calculate dsETH auction rebalance params", function () {
                     rocketPoolEthExchangeRate,
                     fraxEthExchangeRate,
                     stakeWiseEthExchangeRate,
-                    swellEthExchangeRate,
                     staderEthExchangeRate,
+                    swellEthExchangeRate,
                 ];
 
                 expect(lstEthExchangeRates).to.deep.equal(
@@ -103,7 +103,7 @@ describe("Calculate dsETH auction rebalance params", function () {
                 const operatorCounts =
                     await dsEthProposer.getNodeOperatorCounts();
 
-                const expectedOperatorCounts = [1, 1, 1, 1, 1, 2];
+                const expectedOperatorCounts = [1, 1, 1, 1, 1, 1];
 
                 expect(operatorCounts).to.deep.equal(expectedOperatorCounts);
             });
@@ -111,7 +111,7 @@ describe("Calculate dsETH auction rebalance params", function () {
 
         context("#getNodeOperatorWeightFactors", function () {
             it("Should return correct values", async function () {
-                const nodeOperatorCounts = [35, 2188, 5, 1, 8, 14];
+                const nodeOperatorCounts = [35, 2188, 5, 1, 14, 8];
                 const nodeOperatorFactors =
                     await dsEthProposer.getNodeOperatorWeightFactors(
                         nodeOperatorCounts,
@@ -119,7 +119,7 @@ describe("Calculate dsETH auction rebalance params", function () {
                 const expectedNodeOperatorFactors = [
                     0.09465985956812165, 0.7484374191119378,
                     0.03577806393679255, 0.016000436613200376,
-                    0.04525606892455801, 0.05986815184538941,
+                    0.05986815184538941, 0.04525606892455801,
                 ];
 
                 expect(nodeOperatorFactors).to.deep.equal(
@@ -149,8 +149,8 @@ describe("Calculate dsETH auction rebalance params", function () {
                     [1],
                     [1],
                     [1],
-                    [1],
                     [1, 1],
+                    [1],
                 ];
 
                 expect(validatorDistribution).to.deep.equal(
@@ -221,8 +221,8 @@ describe("Calculate dsETH auction rebalance params", function () {
                     rocketPoolTargetUnits,
                     fraxTargetUnits,
                     stakeWiseTargetUnits,
-                    swellTargetUnits,
                     staderTargetUnits,
+                    swellTargetUnits,
                 ];
 
                 expect(targetUnits).to.deep.equal(expectedTargetUnits);
@@ -241,8 +241,8 @@ describe("Calculate dsETH auction rebalance params", function () {
             ];
 
             const expectedNewComponents = [
-                "0xf951E335afb289353dc249e82926178EaC7DEd78",
                 "0xA35b1B31Ce002FBF2058D22F30f95D405200A15b",
+                "0xf951E335afb289353dc249e82926178EaC7DEd78",
             ];
 
             const expectedOldComponentsAuctionParams = [
@@ -274,16 +274,16 @@ describe("Calculate dsETH auction rebalance params", function () {
 
             const expectedNewComponentsAuctionParams = [
                 {
-                    targetUnit: BigNumber.from("143389172227472443"),
-                    priceAdapterName: "BoundedStepwiseLinearPriceAdapter",
-                    priceAdapterConfigData:
-                        "0x0000000000000000000000000000000000000000000000000e657fc19720033d00000000000000000000000000000000000000000000000000005af3107a4000000000000000000000000000000000000000000000000000000000000000025800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000eac8da676a2033d0000000000000000000000000000000000000000000000000e657fc19720033d",
-                },
-                {
                     targetUnit: BigNumber.from("223325247302630300"),
                     priceAdapterName: "BoundedStepwiseLinearPriceAdapter",
                     priceAdapterConfigData:
                         "0x0000000000000000000000000000000000000000000000000dfd53e06d994acc00000000000000000000000000000000000000000000000000005af3107a4000000000000000000000000000000000000000000000000000000000000000025800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e4461c54d1b4acc0000000000000000000000000000000000000000000000000dfd53e06d994acc",
+                },
+                {
+                    targetUnit: BigNumber.from("143389172227472443"),
+                    priceAdapterName: "BoundedStepwiseLinearPriceAdapter",
+                    priceAdapterConfigData:
+                        "0x0000000000000000000000000000000000000000000000000e657fc19720033d00000000000000000000000000000000000000000000000000005af3107a4000000000000000000000000000000000000000000000000000000000000000025800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000eac8da676a2033d0000000000000000000000000000000000000000000000000e657fc19720033d",
                 },
             ];
 

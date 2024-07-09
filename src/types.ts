@@ -5,8 +5,8 @@ export enum PoolIds {
     Rocketpool = "Rocketpool",
     Frax = "Frax",
     StakeWise = "StakeWise",
-    Swell = "Swell",
     Stader = "Stader",
+    Swell = "Swell",
 }
 
 export enum SetTokens {
