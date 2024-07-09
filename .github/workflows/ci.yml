@@ -1,58 +1,55 @@
 name: ci
 
 on:
-  push:
-    branches: [main]
-  pull_request:
+    push:
+        branches: [main]
+    pull_request:
 
 env:
-  MAINNET_RPC_URL: ${{ secrets.MAINNET_RPC_URL }}
+    MAINNET_RPC_URL: ${{ secrets.MAINNET_RPC_URL }}
 
 jobs:
-  test:
-    strategy:
-      fail-fast: true
+    test:
+        strategy:
+            fail-fast: true
 
-    name: Hardhat project
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: recursive
+        name: Hardhat project
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+              with:
+                  submodules: recursive
 
-      - name: Setup Node 18
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18.x"
-          cache: "npm"
+            - name: Setup Node 18
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "18.x"
+                  cache: "npm"
 
-      - name: Copy .env vars
-        run: cp .env.default .env
+            - name: Copy .env vars
+              run: cp .env.default .env
 
-      - name: Install 
-        run: |
-          yarn install
+            - name: Install
+              run: |
+                  yarn install
 
-      - name: Run Hardhat tests
-        run: |
-          yarn hardhat test
-        id: hardhat-test
+            - name: Run Hardhat tests
+              run: |
+                  yarn hardhat test
+              id: hardhat-test
 
-  prettier:
-    runs-on: ubuntu-latest
+    prettier:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-            # Make sure the actual branch is checked out when running on pull requests
-            ref: ${{ github.head_ref }}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+              with:
+                  # Make sure the actual branch is checked out when running on pull requests
+                  ref: ${{ github.head_ref }}
 
-      - name: Check format
-        uses: creyD/prettier_action@v4.3
-        with:
-          dry: True
-          prettier_options: --write **/*.ts
-
-
-
+            - name: Check format
+              uses: creyD/prettier_action@v4.3
+              with:
+                  dry: True
+                  prettier_options: --write **/*.ts

@@ -2,13 +2,13 @@
 
 # dsETH Methodology Reference
 
-This repository contains a reference script and query for the [dsETH Rebalance Proposal Guidelines](https://ipfs.io/ipfs/QmaQmtteNydU2c6H9MJoKwVaspAsgMYJ44YE9mkNNuJmGL?filename=guidelines.md). Access the rendered guidelines document [here](https://github.com/IndexCoop/dseth-methodology-reference/blob/main/guidelines.md). 
+This repository contains a reference script and query for the [dsETH Rebalance Proposal Guidelines](https://ipfs.io/ipfs/QmaQmtteNydU2c6H9MJoKwVaspAsgMYJ44YE9mkNNuJmGL?filename=guidelines.md). Access the rendered guidelines document [here](https://github.com/IndexCoop/dseth-methodology-reference/blob/main/guidelines.md).
 
-| Contracts & IPFS Deployments | Address |
-| - | - |
-| `dsETH` | [0x341c05c0E9b33C0E38d64de76516b2Ce970bB3BE](https://etherscan.io/token/0x341c05c0e9b33c0e38d64de76516b2ce970bb3be#code) | 
-| `OptimisticAuctionExtensionV1` | [0xf0D343Fd94ac44EF6b8baaE8dB3917d985c2cEc7](https://etherscan.io/address/0xf0D343Fd94ac44EF6b8baaE8dB3917d985c2cEc7#code) |
-| `OptimisticOracleV3` | [0xfb55F43fB9F48F63f9269DB7Dde3BbBe1ebDC0dE](https://etherscan.io/address/0xfb55F43fB9F48F63f9269DB7Dde3BbBe1ebDC0dE#code) |
+| Contracts & IPFS Deployments        | Address                                                                                                                                      |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dsETH`                             | [0x341c05c0E9b33C0E38d64de76516b2Ce970bB3BE](https://etherscan.io/token/0x341c05c0e9b33c0e38d64de76516b2ce970bb3be#code)                     |
+| `OptimisticAuctionExtensionV1`      | [0xf0D343Fd94ac44EF6b8baaE8dB3917d985c2cEc7](https://etherscan.io/address/0xf0D343Fd94ac44EF6b8baaE8dB3917d985c2cEc7#code)                   |
+| `OptimisticOracleV3`                | [0xfb55F43fB9F48F63f9269DB7Dde3BbBe1ebDC0dE](https://etherscan.io/address/0xfb55F43fB9F48F63f9269DB7Dde3BbBe1ebDC0dE#code)                   |
 | dsETH Rebalance Proposal Guidelines | [QmaQmtteNydU2c6H9MJoKwVaspAsgMYJ44YE9mkNNuJmGL](https://ipfs.io/ipfs/QmaQmtteNydU2c6H9MJoKwVaspAsgMYJ44YE9mkNNuJmGL?filename=guidelines.md) |
 
 # Background
@@ -20,9 +20,10 @@ To encourage public verification that the methodology is being followed correctl
 ## Overview of dsETH's methodology
 
 At a high level the dsETH methodology states that:
-1) Every six months, dsETH is to be rebalanced into a new composition to reflect changes in the Ethereum liquid staking ecosystem
-2) New liquid staking tokens can be added if they meet token inclusion criteria
-3) New weights for each components can be calculated based on each liquid staking protocols' node operator and validator data.
+
+1. Every six months, dsETH is to be rebalanced into a new composition to reflect changes in the Ethereum liquid staking ecosystem
+2. New liquid staking tokens can be added if they meet token inclusion criteria
+3. New weights for each components can be calculated based on each liquid staking protocols' node operator and validator data.
 
 ## UMA Optimistic Oracle and Rebalance Proposals
 
@@ -32,44 +33,53 @@ Anyone can [dispute a re-weighting proposal](https://docs.uma.xyz/using-uma/disp
 
 ## How the Calculate Auction Rebalance parameters reference script works
 
-The `calculate-auction-rebalance-params` script calculates Target Weights according to the methodology and outputs all the parameters needed to submit<sup>*</sup> or verify a re-weighting proposal. The output of this script can be directly compared to the data in the assertion transaction sent to the dsETH Optimistic Oracle, viewable in [UMA's Oracle dApp](https://oracle.uma.xyz/). 
+The `calculate-auction-rebalance-params` script calculates Target Weights according to the methodology and outputs all the parameters needed to submit<sup>\*</sup> or verify a re-weighting proposal. The output of this script can be directly compared to the data in the assertion transaction sent to the dsETH Optimistic Oracle, viewable in [UMA's Oracle dApp](https://oracle.uma.xyz/).
 
 Note that because this script uses live API calls to Rated, the numerical values for Target Units will not be exactly the same as the submitted proposal. The Optimistic Oracle guidelines states there can be up to a 2% deviation in calculated Target Unit values without triggering a valid dispute.
 
-<sup>*</sup>Proposals are created by submitting a `proposeRebalance()` transaction on dsETH's [OptimisticAuctionRebalanceExtensionV1 contract](https://etherscan.io/address/0x4677f9eac72e10469949d73d8ef71883ce510732#code)
+<sup>\*</sup>Proposals are created by submitting a `proposeRebalance()` transaction on dsETH's [OptimisticAuctionRebalanceExtensionV1 contract](https://etherscan.io/address/0x4677f9eac72e10469949d73d8ef71883ce510732#code)
 
-# Usage 
+# Usage
 
 ## Prerequisites
+
 Environment Variables:
+
 1. [rated api](https://api-docs.rated.network/getting-started/welcome) token (`RATED_API_TOKEN`). [Sign up](https://www.rated.network/signUp) for a free API key.
 2. Ethereum mainnet rpc url (`MAINNET_RPC_URL` env variable)
 
 Be aware that Rated's free API plan is only sufficient to run 1 or 2 calculations. There is a MOCK_RATED_API environment variable that can be set to "true" for testing.
 
 ## Installation
+
 `yarn install`
 
 ## Calculate Auction Rebalance Params
+
 To output all the parameters for verifying a re-weighting proposal run:
 `yarn calculate-auction-rebalance-params`
 
-## Calculate target units 
+## Calculate target units
+
 To calculate the composition of a dsETH set token to be targeted in the auction run:
 `yarn calculate-target-units`
 
 ## Run tests:
+
 `yarn hardhat test`
 
 ## Lint code
+
 This repo uses [prettier](https://prettier.io/docs/en/install.html) (latest version) to enforce consistent formatting:
 `yarn prettier -w **/*.ts`
 
 # Repo Structure
+
 The repository is split into the following directories
-- `src`: Contains the core calculation logic and SDK
-- `scripts`: Contains hardhat scripts that use different parts of the SDK
-- `tests`: Contains hardhat based tests
+
+-   `src`: Contains the core calculation logic and SDK
+-   `scripts`: Contains hardhat scripts that use different parts of the SDK
+-   `tests`: Contains hardhat based tests
 
 ## Appendix: How the Calculate Target Units reference query script works
 

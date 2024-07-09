@@ -347,9 +347,7 @@ export class AuctionRebalanceProposer {
                         "Lido SimpleDVT Module",
                     );
                 validatorDistribution.push(
-                    curatedValidatorCounts.concat(
-                        simpleDVTValidatorCounts,
-                    ),
+                    curatedValidatorCounts.concat(simpleDVTValidatorCounts),
                 );
             } else {
                 validatorDistribution.push(
@@ -357,7 +355,10 @@ export class AuctionRebalanceProposer {
                 );
             }
         }
-        console.log("validator distribution", JSON.stringify(validatorDistribution));
+        console.log(
+            "validator distribution",
+            JSON.stringify(validatorDistribution),
+        );
 
         return validatorDistribution;
     }
