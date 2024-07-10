@@ -10,8 +10,8 @@ export function displayTargetUnits(targetUnits: BigNumber[]) {
     console.log("RocketPool: " + utils.formatEther(targetUnits[1]));
     console.log("Frax: " + utils.formatEther(targetUnits[2]));
     console.log("Stakewise: " + utils.formatEther(targetUnits[3]));
-    console.log("Swell: " + utils.formatEther(targetUnits[4]));
-    console.log("Stader: " + utils.formatEther(targetUnits[5]));
+    console.log("Stader: " + utils.formatEther(targetUnits[4]));
+    console.log("Swell: " + utils.formatEther(targetUnits[5]));
 }
 
 export function setupMockRatedApi() {

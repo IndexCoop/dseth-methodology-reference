@@ -273,21 +273,34 @@ export class AuctionRebalanceProposer {
     async getNodeOperatorCounts(): Promise<number[]> {
         let nodeOperatorCounts: number[] = [];
 
-        // Change this to array.map?
         for (const poolId of Object.values(PoolIds)) {
             if (poolId === PoolIds.Stader) {
                 const permissionedNodeOpCount =
                     await this.ratedApi.getNodeOperatorCountForPool(
                         this.ratedAccessToken,
-                        "Stader - Permissioned",
+                        "Stader Permissioned",
                     );
                 const permissionlessNodeOpCount =
                     await this.ratedApi.getNodeOperatorCountForPool(
                         this.ratedAccessToken,
-                        "Stader - Permissionless",
+                        "Stader Permissionless",
                     );
                 nodeOperatorCounts.push(
                     permissionedNodeOpCount + permissionlessNodeOpCount,
+                );
+            } else if (poolId === PoolIds.Lido) {
+                const curatedNodeOpCount =
+                    await this.ratedApi.getNodeOperatorCountForPool(
+                        this.ratedAccessToken,
+                        "Lido Curated Module",
+                    );
+                const simpleDVTNodeOpCount =
+                    await this.ratedApi.getNodeOperatorCountForPool(
+                        this.ratedAccessToken,
+                        "Lido SimpleDVT Module",
+                    );
+                nodeOperatorCounts.push(
+                    curatedNodeOpCount + simpleDVTNodeOpCount,
                 );
             } else {
                 const nodeOperatorCount =
@@ -298,6 +311,7 @@ export class AuctionRebalanceProposer {
                 nodeOperatorCounts.push(nodeOperatorCount);
             }
         }
+        console.log("node operator counts", nodeOperatorCounts);
 
         return nodeOperatorCounts;
     }
@@ -312,16 +326,28 @@ export class AuctionRebalanceProposer {
             } else if (poolId === PoolIds.Stader) {
                 const permissionedValidatorCounts =
                     await this.getValidatorCountsByNodeOpForPool(
-                        "Stader - Permissioned",
+                        "Stader Permissioned",
                     );
                 const permissionlessValidatorCounts =
                     await this.getValidatorCountsByNodeOpForPool(
-                        "Stader - Permissionless",
+                        "Stader Permissionless",
                     );
                 validatorDistribution.push(
                     permissionedValidatorCounts.concat(
                         permissionlessValidatorCounts,
                     ),
+                );
+            } else if (poolId === PoolIds.Lido) {
+                const curatedValidatorCounts =
+                    await this.getValidatorCountsByNodeOpForPool(
+                        "Lido Curated Module",
+                    );
+                const simpleDVTValidatorCounts =
+                    await this.getValidatorCountsByNodeOpForPool(
+                        "Lido SimpleDVT Module",
+                    );
+                validatorDistribution.push(
+                    curatedValidatorCounts.concat(simpleDVTValidatorCounts),
                 );
             } else {
                 validatorDistribution.push(
@@ -329,6 +355,10 @@ export class AuctionRebalanceProposer {
                 );
             }
         }
+        console.log(
+            "validator distribution",
+            JSON.stringify(validatorDistribution),
+        );
 
         return validatorDistribution;
     }
